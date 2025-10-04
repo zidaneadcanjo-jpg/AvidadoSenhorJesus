@@ -1,0 +1,104 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+header {
+    background: #222;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+}
+
+/* ===== HERO ===== */
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    color: white;
+}
+
+/* Neon vermelho */
+.neon-text {
+    font-size: 3rem;
+    color: #ff0000;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000,
+        0 0 80px #ff0000;
+    animation: pulsar 1.5s infinite alternate;
+}
+
+@keyframes pulsar {
+    from {
+        text-shadow: 
+            0 0 5px #ff0000,
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 40px #ff0000;
+    }
+    to {
+        text-shadow: 
+            0 0 10px #ff4d4d,
+            0 0 20px #ff4d4d,
+            0 0 40px #ff1a1a,
+            0 0 80px #ff1a1a;
+    }
+}
+
+/* ===== SEÇÃO DIVULGUE ===== */
+.divulgue-section {
+    padding: 40px 20px;
+    text-align: center;
+    background: #fff;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.divulgue-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.divulgue-section h3 {
+    margin-top: 25px;
+    col
+
+

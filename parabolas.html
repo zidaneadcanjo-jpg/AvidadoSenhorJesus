@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parábolas de Jesus - Projeto Jesus</title>
+    <link rel="stylesheet" href="parábolas.css">
+</head>
+<body>
+
+    <header class="hero-header">
+        <div class="menu-container">
+            <div class="logo">✝ Projeto Jesus</div>
+            <nav>
+                <ul class="menu">
+                    <a href="index.html" class="back-home">🏠 Voltar para Home</a>
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="milagres.html">Milagres</a></li>
+                    <li><a href="parabolas.html" class="active">Parábolas</a></li>
+                </ul>
+            </nav>
+            <!-- Botão hambúrguer mobile -->
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+
+        <div class="hero">
+            <h1>📖 Parábolas de Jesus</h1>
+            <p>Histórias que atravessam gerações e ensinam valores eternos</p>
+            <a href="#parabolas" class="btn-hero">Ver Parábolas</a>
+        </div>
+    </header>
+
+    <section id="parabolas" class="parabolas-section">
+        <div class="parabolas-container">
+            <article class="parabola">
+                <h3>O Bom Samaritano</h3>
+                <p>História que nos ensina sobre o verdadeiro amor ao próximo.</p>
+            </article>
+            <article class="parabola">
+                <h3>O Filho Pródigo</h3>
+                <p>Uma lição sobre arrependimento e o amor incondicional do Pai.</p>
+            </article>
+            <article class="parabola">
+                <h3>A Ovelha Perdida</h3>
+                <p>Mostra o valor de cada pessoa diante de Deus.</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 A vida de Jesus Cristo. Todos os direitos reservados.</p>
+        <p>Contactos:+244 956491935</p>
+    </footer>
+
+    <script>
+        // Script simples para abrir/fechar menu mobile
+        function toggleMenu() {
+            document.querySelector(".menu").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

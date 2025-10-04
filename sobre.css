@@ -1,0 +1,136 @@
+
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    background-color #f4f4f4;
+    color: #333
+    line-height: 1.6;
+}
+header {
+    background: url("/storage/emulated/0/VidadeJesusCristo/desenho-animado-dos-portoes-do-ceu_23-2151539548.jpg") no-repeat center center/cover;
+    color: white;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+}
+header h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+header p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+nav::-webkit-scrollbar {
+    display: none;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    gap: 20px;
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    display: block;
+}
+nav ul li a:hover {
+    color: #ff6f61;
+}
+/* Estilos da seção Sobre */
+.sobre-section {
+    padding: 40px 20px;
+    background-color: white;
+}
+.sobre-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+.sobre-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    position: relative;
+}
+.sobre-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ff6f61;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+.sobre-container p {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+.sobre-imagem {
+    text-align: center;
+    margin-top: 30px;
+}
+.sobre-imagem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sobre-imagem img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* Rodapé */
+footer {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+footer p {
+    background-color: red;
+    margin: 0;
+    font-size: 1rem;
+}
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.sobre-container {
+    animation: fadeIn 0.8s ease-in-out;
+}
