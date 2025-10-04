@@ -1,40 +1,40 @@
-Adicionar um `README.md` ao seu projeto "A Vida de Jesus Cristo" é uma ótima maneira de contextualizar o que o projeto representa e como outras pessoas podem entender ou até mesmo contribuir com ele. Vou te dar um exemplo de estrutura para o seu `README.md`. Você pode adaptar conforme o seu projeto, se for um site, um blog, ou algum material mais interativo.
-
-### Estrutura sugerida para o seu `README.md`:
-
-```markdown
 # A Vida de Jesus Cristo
 
-Este projeto tem como objetivo apresentar a vida de Jesus Cristo, seus ensinamentos e sua importância histórica e espiritual. Através de uma abordagem visual e interativa, buscamos contar a trajetória de Jesus, desde seu nascimento até sua crucificação e ressurreição, fornecendo um conteúdo acessível e educativo.
+Este projeto tem como objetivo apresentar a vida de Jesus Cristo de forma educativa, explorando os principais eventos de Sua jornada terrena. Através de uma abordagem visual e interativa, buscamos proporcionar uma experiência rica e imersiva para todos os visitantes, com o intuito de compartilhar Sua mensagem e os ensinamentos transformadores.
 
 ## Funcionalidades
 
-- **Narrativa Interativa**: Explore os principais momentos da vida de Jesus Cristo, como seu nascimento, ministério, milagres, crucificação e ressurreição.
-- **Design Responsivo**: O projeto é otimizado para diferentes dispositivos, garantindo uma experiência fluida em desktops, tablets e smartphones.
-- **Referências Bíblicas**: Cada evento é acompanhado por passagens das Escrituras que descrevem os acontecimentos.
+- **Narração Interativa**: Conheça a vida de Jesus desde Seu nascimento até a crucificação e ressurreição, com detalhes sobre Seus milagres e ensinamentos.
+- **Design Responsivo**: O site foi desenvolvido para oferecer uma experiência acessível em dispositivos de diferentes tamanhos, seja em smartphones, tablets ou desktops.
+- **Referências Bíblicas**: Cada evento narrado é acompanhado por citações das Escrituras, proporcionando uma compreensão mais profunda dos momentos descritos.
 
 ## Como Usar
 
-1. **Acesse o site**: 
-   O projeto está disponível online através do GitHub Pages. [Clique aqui para acessar](https://seu-usuario.github.io/vida-de-jesus-cristo).
-
-2. **Interação**: Navegue pelas diferentes seções para conhecer a vida de Jesus Cristo de maneira cronológica, com links para mais informações.
+1. **Acesse o site**: O projeto está disponível online através do GitHub Pages. [Clique aqui para acessar](https://zidaneadcanjo-jpg.github.io/AvidadoSenhorJesus/).
+2. **Navegação**: Explore as diferentes seções do site para conhecer mais sobre a vida e os ensinamentos de Jesus Cristo.
 
 ## Tecnologias Usadas
 
-- **HTML**: Para a estrutura do conteúdo.
-- **CSS**: Para o estilo visual e responsividade.
-- **JavaScript**: Para interatividade (se houver).
-- **GitHub Pages**: Para hospedagem do site.
+- **HTML**: Estruturação do conteúdo e da navegação.
+- **CSS**: Estilização e responsividade do site.
+- **JavaScript**: Para elementos interativos (se houver).
 
 ## Como Contribuir
 
-Contribuições são bem-vindas! Se você quiser ajudar a melhorar o projeto, siga os passos abaixo:
+Este projeto está aberto a contribuições! Se você deseja colaborar, siga as instruções abaixo:
 
+1. Faça um fork deste repositório.
+2. Crie uma nova branch para suas alterações (`git checkout -b nova-feature`).
+3. Realize as alterações e envie um pull request para discussão.
 
+## Licença
 
+Este projeto não está licenciado, isto será resolvido em breve!
 
-Se você tiver perguntas ou sugestões sobre o projeto, fique à vontade para me contatar:
+## Contato
 
-- E-mail: zidaneadcanjo@gmail
+Se você tiver dúvidas, sugestões ou quiser compartilhar feedback sobre o projeto, fique à vontade para entrar em contato:
 
+- **Telefone**: +244 956491935
+- **E-mail**: [zidaneadcanjo@gmail.com](mailto:zidaneadcanjo@gmail.com)
+- **GitHub**: [zidaneadcanjo](https://github.com/zidaneadcanjo)
