@@ -1,44 +1,179 @@
-/* ===== IBAN DO ADMIN ===== */
-.admin-iban {
-  margin-top: 25px;
-  text-align: center;
-  color: #eee;
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.iban-display {
-  display: inline-flex;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f8f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.menu-container {
+  background: #111;
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background: #222;
-  border-radius: 8px;
-  padding: 10px 15px;
-  margin-top: 8px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-#iban-text {
-  color: #4af;
+.logo {
+  color: white;
+  font-size: 1.2rem;
   font-weight: bold;
-  letter-spacing: 1px;
-  margin-right: 10px;
 }
 
-#copy-btn {
-  background: #4af;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 5px 12px;
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu li a:hover,
+.menu li a.active {
+  color: #ff3333;
+}
+
+/* ===== MENU MOBILE ===== */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-#copy-btn:hover {
-  background: #1e90ff;
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
-.thank-msg {
-  display: block;
-  margin-top: 10px;
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("jesus2.jpg") no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+}
+
+/* ===== GALERIA ===== */
+.gallery-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.gallery-item p {
+  padding: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+.iban-box {
+  background: #f5f5f5;
+  padding: 10px;
   font-size: 0.9rem;
-  opacity: 0.8;
+  border-top: 1px solid #ddd;
+}
+
+.donate-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 15px;
+  background: #ff3333;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.donate-btn:hover {
+  background: #cc0000;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+.meu-iban {
+  margin-top: 10px;
+  color: #ff6666;
+  font-weight: bold;
 }
