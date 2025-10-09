@@ -1,97 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria - Projeto Jesus</title>
-    <link rel="stylesheet" href="galeria.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria - Projeto Jesus</title>
+  <link rel="stylesheet" href="galeria.css">
 </head>
 <body>
 
-    <header>
-        <div class="menu-container">
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html" class="active">Sobre</a></li>
-                    <li><a href="milagres.html">Milagres</a></li>
-                    <li><a href="galeria.html">Galeria</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="menu-container">
+      <nav class="navbar">
+        <div class="logo">✝️ Projeto Jesus</div>
+        <div class="menu-toggle" id="mobile-menu">
+          ☰
         </div>
-        <div class="hero">
-            <h1>Galeria de Imagens</h1>
-            <p>Explorando a arte e a história através de imagens e boas ações</p>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="milagres.html">Milagres</a></li>
+          <li><a href="galeria.html" class="active">Galeria</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>Galeria de Imagens</h1>
+      <p>Explorando a arte e a história através de imagens e boas ações</p>
+    </div>
+  </header>
+
+  <section class="gallery-section">
+    <div class="gallery-container">
+
+      <div class="gallery-item">
+        <img src="jesusensinando (1).jpeg" alt="Jesus ensinando">
+        <p>Jesus ensinando as multidões</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="jesusdiscipulos.jpeg" alt="Jesus e os discípulos">
+        <p>Jesus com seus discípulos</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="jesusmultiplicacao (1).jpeg" alt="Milagre da multiplicação">
+        <p>O milagre da Multiplicação dos pães</p>
+      </div>
+
+      <!-- ===== ORGANIZAÇÕES DE CARIDADE ===== -->
+      <div class="gallery-item votoka">
+        <img src="votoka.jpg" alt="Associação Votoka Angola">
+        <p><strong>Associação Votoka Angola</strong><br>Empoderamento e ajuda comunitária</p>
+        <div class="iban-box">
+          <p><strong>IBAN:</strong> AO06004000006884599515231</p>
+          <a href="https://www.votokaangola.org" target="_blank" class="donate-btn">Visitar Site</a>
         </div>
-    </header>
+      </div>
 
-    <section class="gallery-section">
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="jesusensinando (1).jpeg" alt="Jesus ensinando">
-                <p>Jesus ensinando as multidões</p>
-            </div>
-            <div class="gallery-item">
-                <img src="jesusdiscipulos.jpeg" alt="Jesus e os discípulos">
-                <p>Jesus com seus discípulos</p>
-            </div>
-            <div class="gallery-item">
-                <img src="jesusmultiplicacao (1).jpeg" alt="Milagre da multiplicação">
-                <p>O milagre da Multiplicação dos pães</p>
-            </div>
-
-            <!-- ===== ORGANIZAÇÕES DE CARIDADE ===== -->
-            <div class="gallery-item votoka">
-                <img src="votoka.jpg" alt="Associação Votoka Angola">
-                <p><strong>Associação Votoka Angola</strong><br>Empoderamento e ajuda comunitária</p>
-                <div class="iban-box">
-                    <p><strong>IBAN:</strong> AO06004000006884599515231</p>
-                    <a href="https://www.votokaangola.org" target="_blank" class="donate-btn">Visitar Site</a>
-                </div>
-            </div>
-
-            <div class="gallery-item cuerama">
-                <img src="cuerama.jpg" alt="Fundação Cuerama">
-                <p><strong>Fundação Cuerama</strong><br>Educação, alimentação e apoio às famílias</p>
-                <div class="iban-box">
-                    <p><strong>IBAN:</strong> AO06005100006731760510139</p>
-                    <a href="https://fundacaocuerama.org" target="_blank" class="donate-btn">Visitar Site</a>
-                </div>
-            </div>
-
-            <div class="gallery-item kuzola">
-                <img src="kuzola.jpg" alt="Lar Kuzola Luanda">
-                <p><strong>Lar Kuzola</strong><br>Apoio a crianças órfãs e vulneráveis</p>
-                <div class="iban-box">
-                    <p><strong>IBAN:</strong> AO06005500007829495611045</p>
-                    <a href="https://www.facebook.com/LarKuzolaOficial" target="_blank" class="donate-btn">Saber Mais</a>
-                </div>
-            </div>
+      <div class="gallery-item cuerama">
+        <img src="cuerama.jpg" alt="Fundação Cuerama">
+        <p><strong>Fundação Cuerama</strong><br>Educação, alimentação e apoio às famílias</p>
+        <div class="iban-box">
+          <p><strong>IBAN:</strong> AO06005100006731760510139</p>
+          <a href="https://fundacaocuerama.org" target="_blank" class="donate-btn">Visitar Site</a>
         </div>
-    </section>
+      </div>
 
-    <footer>
-        <p>© 2025 A Vida de Jesus Cristo. Todos os direitos reservados.</p>
-        <p>Contactos: +244 956491935</p>
-
-        <div class="admin-iban">
-            <p><strong>IBAN do Administrador:</strong></p>
-            <div class="iban-display">
-                <span id="iban-text">AO06004000006884599515231</span>
-                <button id="copy-btn">Copiar</button>
-            </div>
-            <small class="thank-msg">Apoie este projeto e ajude-nos a espalhar a mensagem de Jesus 🙏</small>
+      <div class="gallery-item kuzola">
+        <img src="kuzola.jpg" alt="Lar Kuzola Luanda">
+        <p><strong>Lar Kuzola</strong><br>Apoio a crianças órfãs e vulneráveis</p>
+        <div class="iban-box">
+          <p><strong>IBAN:</strong> AO06005500007829495611045</p>
+          <a href="https://www.facebook.com/LarKuzolaOficial" target="_blank" class="donate-btn">Saber Mais</a>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Função para copiar o IBAN
-        document.getElementById("copy-btn").addEventListener("click", function() {
-            const ibanText = document.getElementById("iban-text").innerText;
-            navigator.clipboard.writeText(ibanText);
-            alert("IBAN copiado com sucesso!");
-        });
-    </script>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 A Vida de Jesus Cristo. Todos os direitos reservados.</p>
+    <p>Contactos: +244 956491935</p>
+    <p class="meu-iban">❤️ <strong>IBAN do Administrador:</strong> AO06004000006884599515210</p>
+  </footer>
+
+  <script>
+    // Menu Responsivo
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menu = document.querySelector(".menu");
+
+    mobileMenu.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  </script>
 
 </body>
 </html>
