@@ -1,120 +1,144 @@
-/* ======== ESTILOS GERAIS ======== */
+/* ======= GERAL ======= */
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f9fafb;
-  color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9fb;
+    color: #222;
 }
 
+/* ======= CABEÇALHO ======= */
 header {
-  background: linear-gradient(90deg, #005cbf, #007bff);
-  color: white;
-  padding: 15px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #2a2a72, #009ffd);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 10%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 1.5em;
+    letter-spacing: 1px;
 }
 
 nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-nav ul li {
-  margin: 0 10px;
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
+nav a:hover, nav a.active {
+    color: #ffeb3b;
 }
 
-nav ul li a:hover,
-nav ul li a.ativo {
-  color: #ffee58;
+/* ======= SEÇÃO INTRO ======= */
+.intro {
+    text-align: center;
+    padding: 80px 10%;
+    background: white;
+    border-radius: 15px;
+    margin: 50px 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-main {
-  padding: 40px 20px;
-  text-align: center;
+.intro h2 {
+    color: #2a2a72;
+    margin-bottom: 15px;
 }
 
-h1 {
-  font-size: 2rem;
-  color: #005cbf;
-  margin-bottom: 25px;
+.intro p {
+    line-height: 1.8;
+    color: #444;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
+/* ======= GRADE DE MILAGRES ======= */
+.milagres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 60px 10%;
 }
 
-ul li {
-  background: white;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
+.milagre-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-ul li:hover {
-  transform: translateY(-3px);
+.milagre-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
+.milagre-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.milagre-card h3 {
+    color: #2a2a72;
+    margin: 15px 20px 10px;
+}
+
+.milagre-card p {
+    color: #444;
+    margin: 0 20px 20px;
+    line-height: 1.6;
+}
+
+/* ======= MENSAGEM FINAL ======= */
+.mensagem-final {
+    background: #eaf3ff;
+    text-align: center;
+    padding: 70px 10%;
+}
+
+.mensagem-final h2 {
+    color: #1b263b;
+    margin-bottom: 20px;
+}
+
+.mensagem-final p {
+    max-width: 700px;
+    margin: auto;
+    color: #333;
+    line-height: 1.7;
+}
+
+/* ======= RODAPÉ ======= */
 footer {
-  background: #222;
-  color: #ddd;
-  text-align: center;
-  padding: 30px 15px;
-  margin-top: 40px;
+    background: #2a2a72;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
 }
 
-footer p {
-  margin: 8px 0;
-  font-size: 0.95rem;
-}
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-footer strong {
-  color: #fff;
-}
+    .intro {
+        margin: 30px 5%;
+        padding: 50px 7%;
+    }
 
-.apoio {
-  margin-top: 20px;
-  background: #333;
-  display: inline-block;
-  padding: 15px 25px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-.apoio p {
-  margin: 6px 0;
-}
-
-/* ======== RESPONSIVIDADE ======== */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  ul li {
-    font-size: 0.9rem;
-  }
-
-  .apoio {
-    font-size: 0.85rem;
-    width: 90%;
-  }
+    .milagres-grid {
+        padding: 40px 5%;
+    }
 }
