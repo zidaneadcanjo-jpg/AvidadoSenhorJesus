@@ -1,0 +1,120 @@
+/* ======== ESTILOS GERAIS ======== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafb;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(90deg, #005cbf, #007bff);
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.ativo {
+  color: #ffee58;
+}
+
+main {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #005cbf;
+  margin-bottom: 25px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+ul li {
+  background: white;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+ul li:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+footer strong {
+  color: #fff;
+}
+
+.apoio {
+  margin-top: 20px;
+  background: #333;
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.apoio p {
+  margin: 6px 0;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  ul li {
+    font-size: 0.9rem;
+  }
+
+  .apoio {
+    font-size: 0.85rem;
+    width: 90%;
+  }
+}
