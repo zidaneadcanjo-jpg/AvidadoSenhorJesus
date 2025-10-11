@@ -1,139 +1,127 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* ===== BASE ===== */
+/* Estilo geral */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f8f8f8;
-  color: #222;
-  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom, #e0e0e0, #ffffff);
+  color: #333;
 }
 
-/* ===== MENU ===== */
+/* Menu fixo */
+header {
+  background-color: #5c2d91;
+  color: white;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
 .menu-container {
-  background: #111;
-  padding: 15px 0;
+  text-align: center;
 }
 
 .menu {
-  display: flex;
-  justify-content: center;
   list-style: none;
-  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
-.menu li a {
+.menu li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.menu a {
+  color: white;
   text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
 }
 
-.menu li a:hover,
-.menu li a.active {
-  color: #ff3333;
+.menu a:hover,
+.menu a.active {
+  color: #ffd700;
 }
 
-/* ===== HERO ===== */
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url("images/jesus2.jpg") no-repeat center center;
-  background-size: cover;
-  color: white;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-/* ===== CONTACT SECTION ===== */
+/* Seção de contacto */
 .contact-section {
-  padding: 60px 20px;
+  padding: 120px 20px 60px;
   max-width: 700px;
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
 }
 
-.contact-section h2 {
-  font-size: 2rem;
+.contact-section h1 {
+  color: #5c2d91;
   margin-bottom: 10px;
-  color: #111;
 }
 
 .contact-section p {
-  color: #444;
-  margin-bottom: 40px;
+  color: #555;
+  margin-bottom: 30px;
 }
 
-.contact-form {
-  background: #fff;
+/* Formulário */
+form {
+  background: white;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  text-align: left;
-}
-
-.form-group {
-  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #222;
+  text-align: left;
+  margin-top: 15px;
+  color: #444;
+  font-weight: 500;
 }
 
 input, textarea {
   width: 100%;
   padding: 12px;
+  margin-top: 5px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
-}
-
-input:focus, textarea:focus {
-  border-color: #ff3333;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
   outline: none;
 }
 
+input:focus, textarea:focus {
+  border-color: #5c2d91;
+  box-shadow: 0 0 4px #a47be3;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
 button {
-  background: #ff3333;
+  background-color: #5c2d91;
   color: white;
   border: none;
-  padding: 14px 25px;
-  border-radius: 6px;
-  font-size: 1rem;
+  padding: 12px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
 }
 
 button:hover {
-  background: #cc0000;
+  background-color: #4b2474;
 }
 
-/* ===== FOOTER ===== */
+/* Rodapé */
 footer {
-  background: #111;
-  color: #ccc;
+  background-color: #5c2d91;
+  color: white;
   text-align: center;
-  padding: 20px;
-  margin-top: 60px;
-}
-
-footer p {
-  font-size: 0.9rem;
+  padding: 20px 10px;
+  margin-top: 40px;
+  font-size: 14px;
 }
