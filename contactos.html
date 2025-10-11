@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contactos - A Vida do Senhor Jesus</title>
+  <title>Contactos - Projeto Jesus</title>
   <link rel="stylesheet" href="contactos.css">
 </head>
 <body>
 
-  <!-- ===== MENU ===== -->
   <header>
     <div class="menu-container">
       <nav>
@@ -21,48 +20,50 @@
         </ul>
       </nav>
     </div>
-
-    <div class="hero">
-      <h1>Contacte-nos</h1>
-      <p>Envie a sua mensagem ou deixe o seu testemunho de fé</p>
-    </div>
   </header>
 
-  <!-- ===== SECÇÃO DE CONTACTO ===== -->
   <section class="contact-section">
-    <h2>Fale Connosco</h2>
-    <p>Envie a sua mensagem e retornaremos com amor e atenção.</p>
+    <h1>Fale Conosco</h1>
+    <p>Envie-nos a sua mensagem, sugestão ou pedido de oração.</p>
 
-    <form action="https://formsubmit.co/teuemail@gmail.com" method="POST" class="contact-form">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://zidaneadcanjo-jpg.github.io/AvidadoSenhorJesus/obrigado.html">
+    <form action="#" method="POST" onsubmit="return validateForm();">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" placeholder="Seu nome" required>
 
-      <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
-      </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Seu email" required>
 
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required placeholder="Seu melhor e-mail">
-      </div>
+      <label for="subject">Assunto (Subject):</label>
+      <input type="text" id="subject" name="subject" placeholder="Ex: Pedido de oração" required>
 
-      <div class="form-group">
-        <label for="message">Mensagem</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Escreva aqui sua mensagem..."></textarea>
-      </div>
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" placeholder="Escreva a sua mensagem..." required></textarea>
 
       <button type="submit">Enviar Mensagem</button>
     </form>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 A Vida de Jesus Cristo. Todos os direitos reservados.</p>
-      <p> Se deseja apoiar esse projecto com doações monetário aqui está o Iban
-, obrigado pela gerosidade!</p>p
-      <p>IBAN do Administrador: <strong>AO06 0044 0000 2049 2745 1015 2</strong></p>
+    <p>© 2025 Projeto Jesus. Todos os direitos reservados.</p>
+    <p>IBAN do Administrador: AO06 0040 0000 1234 5678 910</p>
   </footer>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert("Por favor, preencha todos os campos corretamente.");
+        return false;
+      }
+
+      alert("Mensagem enviada com sucesso (simulação)!");
+      return false; // evita envio real no GitHub Pages
+    }
+  </script>
 
 </body>
 </html>
