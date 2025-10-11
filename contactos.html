@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactos - Projeto Jesus</title>
-    <link rel="stylesheet" href="contactos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos - A Vida do Senhor Jesus</title>
+  <link rel="stylesheet" href="contactos.css">
 </head>
 <body>
 
-    <!-- MENU -->
-    <header>
-        <div class="menu-container">
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="milagres.html">Milagres</a></li>
-                    <li><a href="galeria.html">Galeria</a></li>
-                    <li><a href="contactos.html" class="active">Contactos</a></li>
-                </ul>
-            </nav>
-        </div>
+  <!-- ===== MENU ===== -->
+  <header>
+    <div class="menu-container">
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="milagres.html">Milagres</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="contactos.html" class="active">Contactos</a></li>
+        </ul>
+      </nav>
+    </div>
 
-        <!-- HERO -->
-        <div class="hero">
-            <h1>Contacte-nos</h1>
-            <p>Entre em contacto connosco para dúvidas, sugestões ou doações</p>
-        </div>
-    </header>
+    <div class="hero">
+      <h1>Contacte-nos</h1>
+      <p>Envie a sua mensagem ou deixe o seu testemunho de fé</p>
+    </div>
+  </header>
 
-    <!-- SEÇÃO DE CONTACTO -->
-    <section class="contact-section">
-        <h2>Formulário de Contacto</h2>
-        <div class="contact-container">
-            <form action="#" method="post" class="contact-form">
-                <input type="text" name="nome" placeholder="Nome completo" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="mensagem" placeholder="Mensagem" rows="6" required></textarea>
-                <button type="submit">Enviar Mensagem</button>
-            </form>
+  <!-- ===== SECÇÃO DE CONTACTO ===== -->
+  <section class="contact-section">
+    <h2>Fale Connosco</h2>
+    <p>Envie a sua mensagem e retornaremos com amor e atenção.</p>
 
-            <!-- Informações adicionais -->
-            <div class="contact-info">
-                <h3>Informações</h3>
-                <p><strong>Telefone:</strong> +244 956491935</p>
-                <p><strong>Email:</strong> contato@avidadojesus.com</p>
-                <p><strong>IBAN do Administrador:</strong> AO06 0045 0000 5533 0058 4007 10</p>
-            </div>
-        </div>
-    </section>
+    <form action="https://formsubmit.co/teuemail@gmail.com" method="POST" class="contact-form">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://zidaneadcanjo-jpg.github.io/AvidadoSenhorJesus/obrigado.html">
 
-    <!-- RODAPÉ -->
-    <footer>
-        <p>© 2025 A Vida de Jesus Cristo. Todos os direitos reservados.</p>
-        <p><strong>IBAN do Administrador:</strong> AO06 0045 0000 5533 0058 4007 10</p>
-    </footer>
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required placeholder="Seu melhor e-mail">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Escreva aqui sua mensagem..."></textarea>
+      </div>
+
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 A Vida de Jesus Cristo. Todos os direitos reservados.</p>
+      <p> Se deseja apoiar esse projecto com doações monetário aqui está o Iban
+, obrigado pela gerosidade!</p>p
+      <p>IBAN do Administrador: <strong>AO06 0044 0000 2049 2745 1015 2</strong></p>
+  </footer>
 
 </body>
 </html>
