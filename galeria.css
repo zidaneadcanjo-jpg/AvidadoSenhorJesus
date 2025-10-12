@@ -95,13 +95,30 @@ body {
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-.card-image img {
+/* ==== IMAGEM DO CARD ==== */
+.card-image {
   width: 100%;
   height: 220px;
-  object-fit: contain;
-  background: #f8f9fb; /* fundo da imagem igual padrão */
+  overflow: hidden; /* corta qualquer parte que ultrapasse o card */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  position: relative;
 }
 
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cobre toda a área */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Efeito de zoom na imagem ao passar o mouse */
+.gallery-item:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* ==== CONTEÚDO DO CARD ==== */
 .card-content {
   padding: 15px;
   text-align: center;
@@ -156,7 +173,7 @@ footer p {
     gap: 20px;
   }
 
-  .card-image img {
+  .card-image {
     height: 180px;
   }
 }
