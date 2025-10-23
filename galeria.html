@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria - Projeto Jesus</title>
+    <meta name="description" content="Galeria de imagens inspiradoras sobre a vida de Jesus Cristo e organizações solidárias cristãs.">
+    <meta name="keywords" content="Jesus Cristo, galeria cristã, organizações solidárias, fé cristã">
+    <title>Galeria - A Vida do Senhor Jesus</title>
     <link rel="stylesheet" href="galeria.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.min.css">
 </head>
 <body>
-
     <!-- MENU -->
     <header>
         <div class="menu-container">
@@ -24,94 +27,117 @@
         <!-- HERO -->
         <div class="hero">
             <h1>Galeria de Imagens</h1>
-            <p>Explorando a arte e a história através de imagens</p>
+            <p>Explorando a arte, a história e a solidariedade através de imagens</p>
         </div>
     </header>
 
-    <!-- GALERIA -->
-    <section class="gallery-section">
-        <h2>Galeria de Imagens e Organizações Solidárias</h2>
-        <div class="gallery-container">
+    <!-- FILTROS -->
+    <section class="filter-section">
+        <div class="filter-buttons">
+            <button data-filter="all">Todos</button>
+            <button data-filter="faith">Imagens de Fé</button>
+            <button data-filter="charity">Organizações Solidárias</button>
+        </div>
+    </section>
 
-            <!-- Imagens de Jesus -->
-            <div class="gallery-item">
+    <!-- GALERIA - IMAGENS DE FÉ -->
+    <section class="gallery-section" role="gallery" aria-label="Galeria de imagens religiosas e organizações solidárias">
+        <h2>Imagens de Fé</h2>
+        <div class="gallery-container faith">
+            <div class="gallery-item faith" data-src="jesusteacher.webp">
                 <div class="card-image">
-                    <img src="jesusteacher.webp" alt="Jesus ensinando">
+                    <img src="jesusteacher.webp" alt="Ilustração de Jesus ensinando uma multidão à beira do mar" loading="lazy">
                 </div>
                 <div class="card-content">
                     <p>Jesus ensinando as multidões</p>
                 </div>
             </div>
-
-            <div class="gallery-item">
+            <div class="gallery-item faith" data-src="jesusandando.webp">
                 <div class="card-image">
-                    <img src="jesusandando.webp" alt="Jesus e os discípulos">
+                    <img src="jesusandando.webp" alt="Ilustração de Jesus caminhando com seus discípulos" loading="lazy">
                 </div>
                 <div class="card-content">
                     <p>Jesus com seus discípulos</p>
                 </div>
             </div>
-
-            <div class="gallery-item">
+            <div class="gallery-item faith" data-src="grace.webp">
                 <div class="card-image">
-                    <img src="grace.webp" alt="Milagre da multiplicação">
+                    <img src="grace.webp" alt="Ilustração do milagre da multiplicação dos pães e peixes" loading="lazy">
                 </div>
                 <div class="card-content">
                     <p>O milagre da Multiplicação dos pães</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Organizações Solidárias -->
-            <div class="gallery-item">
+        <!-- GALERIA - ORGANIZAÇÕES SOLIDÁRIAS -->
+        <h2>Organizações Solidárias</h2>
+        <div class="gallery-container charity">
+            <div class="gallery-item charity">
                 <div class="card-image">
-                    <img src="" alt="Lar Kuzola">
+                    <img src="https://via.placeholder.com/280x220?text=Lar+Kuzola" alt="Imagem representativa do Lar Kuzola" loading="lazy">
                 </div>
                 <div class="card-content">
-                    <p>Lar Kuzola — IBAN: Não disponível publicamente</p>
+                    <p><i class="fas fa-heart"></i> Lar Kuzola — IBAN: Não disponível publicamente</p>
                     <a href="https://portaldovoluntario.ao/lar-de-infancia-kuzola/" target="_blank">Visitar site oficial</a>
                 </div>
             </div>
-
-            <div class="gallery-item">
+            <div class="gallery-item charity">
                 <div class="card-image">
-                    <img src="caritas.png" alt="Caritas Angola">
+                    <img src="caritas.png" alt="Logotipo da Caritas Angola" loading="lazy">
                 </div>
                 <div class="card-content">
-                    <p>Caritas Angola — IBAN: AO06 0006 0000 9370 9168 3016 1</p>
+                    <p><i class="fas fa-heart"></i> Caritas Angola — IBAN: AO06 0006 0000 9370 9168 3016 1</p>
                     <a href="https://caritasangola.org" target="_blank">Visitar site oficial</a>
                 </div>
             </div>
-
-            <div class="gallery-item">
+            <div class="gallery-item charity">
                 <div class="card-image">
-                    <img src="cruzvermelha.png" alt="Cruz Vermelha Angola">
+                    <img src="cruzvermelha.png" alt="Logotipo da Cruz Vermelha Angola" loading="lazy">
                 </div>
                 <div class="card-content">
-                    <p>Cruz Vermelha Angola — IBAN: Não disponível publicamente</p>
-                    <a href="
-https://www.facebook.com/p/Cruz-Vermelha-de-Angola-61561148734246/
-" target="_blank">Visitar site oficial</a>
+                    <p><i class="fas fa-heart"></i> Cruz Vermelha Angola — IBAN: Não disponível publicamente</p>
+                    <a href="https://www.facebook.com/p/Cruz-Vermelha-de-Angola-61561148734246/" target="_blank">Visitar página oficial</a>
                 </div>
             </div>
-
-            <div class="gallery-item">
+            <div class="gallery-item charity">
                 <div class="card-image">
-                    <img src="https://via.placeholder.com/280x220?text=F%C3%A9+e+Esperan%C3%A7a" alt="Fundação Fé e Esperança">
+                    <img src="https://via.placeholder.com/280x220?text=Fé+e+Esperança" alt="Imagem representativa da Fundação Fé e Esperança" loading="lazy">
                 </div>
                 <div class="card-content">
-                    <p>Fundação Fé e Esperança — IBAN: Não disponível publicamente</p>
-                    <a href="#" target="_blank">Visitar site oficial</a>
+                    <p><i class="fas fa-heart"></i> Fundação Fé e Esperança — IBAN: Não disponível publicamente</p>
+                    <p>Entre em contato para mais informações</p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- RODAPÉ -->
     <footer>
-        <p>© 2025 A Vida de Jesus Cristo. Todos os direitos reservados.</p>
-        <p><strong>IBAN do Administrador:</strong> AO06 0045 0000 5533 0058 4007 10</p>
+        <p>© 2025 A Vida do Senhor Jesus. Todos os direitos reservados.</p>
+        <p><a href="doacoes.html">Apoie a manutenção do site</a></p>
     </footer>
 
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
+    <script>
+        // Lightbox para imagens de fé
+        lightGallery(document.querySelector('.gallery-container.faith'), {
+            selector: '.gallery-item.faith',
+            thumbnail: true
+        });
+
+        // Filtros
+        document.querySelectorAll('.filter-buttons button').forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                document.querySelectorAll('.gallery-container').forEach(container => {
+                    container.style.display = (filter === 'all' || container.classList.contains(filter)) ? 'grid' : 'none';
+                });
+                document.querySelectorAll('.filter-buttons button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
