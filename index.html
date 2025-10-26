@@ -48,11 +48,11 @@
             <span>— João 14:6</span>
         </blockquote>
     </section>
-
-    <section class="video-card-section">
+    
+<section class="video-card-section">
   <div class="video-card">
     <div class="video-container">
-      <!-- Coloca aqui o link do teu vídeo (por exemplo do YouTube) -->
+      <!-- Substitui este link pelo do teu vídeo -->
       <iframe
         src="https://www.youtube.com/embed/SEU_VIDEO_AQUI"
         title="Vídeo da História"
@@ -63,12 +63,27 @@
     <div class="card-content">
       <h2 class="card-title">Título da História</h2>
       <p class="card-description">
-        Aqui vai o texto da história. Você poderá editar esta parte depois e
-        colocar o conteúdo completo ou um resumo do vídeo acima.
+        Aqui vai um pequeno resumo da história que será contada no vídeo acima.
+        Clique em "Ler mais" para ver o texto completo.
       </p>
+      <button class="read-more-btn" onclick="openModal()">Ler mais</button>
     </div>
   </div>
-    </section>
+</section>
+
+<!-- Modal (janela que abre o texto completo) -->
+<div id="storyModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 class="modal-title">Título Completo da História</h2>
+    <p class="modal-text">
+      Aqui você pode colocar a história completa que deseja mostrar.  
+      Pode ser um texto longo, com parágrafos e até citações bíblicas.  
+      Basta substituir este conteúdo pelo seu texto real.
+    </p>
+  </div>
+</div>
+
     
     <!-- ======= RODAPÉ ======= -->
     <footer id="contato">
