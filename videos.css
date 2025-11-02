@@ -5,10 +5,59 @@
     padding: 0;
 }
 
+/* HEADER ESPECÍFICO PARA VÍDEOS */
+.videos-page header {
+    background: rgba(27, 38, 59, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 5%;
+}
+
+.videos-page .logo h1 {
+    font-size: 1.2rem;
+    color: #ffcc00;
+}
+
+/* MENU HORIZONTAL SEMPRE */
+.videos-page nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.videos-page nav ul li {
+    white-space: nowrap;
+}
+
+.videos-page nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.videos-page nav ul li a:hover,
+.videos-page nav ul li a.active {
+    background: #ffcc00;
+    color: #000;
+}
+
+/* CONTEÚDO PRINCIPAL DE VÍDEOS */
 .video-feed {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    margin-top: 60px; /* Espaço para o header fixo */
 }
 
 .video-item {
@@ -149,13 +198,13 @@
 /* Indicador de vídeos */
 .video-indicator {
     position: fixed;
-    top: 80px;
+    top: 70px;
     right: 20px;
     background: rgba(0,0,0,0.7);
     color: white;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 12px;
     z-index: 1000;
     backdrop-filter: blur(10px);
 }
@@ -170,8 +219,35 @@
     font-size: 18px;
 }
 
-/* Responsividade para mobile */
+/* ======= RESPONSIVIDADE PARA MOBILE ======= */
 @media (max-width: 768px) {
+    /* HEADER OTIMIZADO PARA MOBILE */
+    .videos-page header {
+        padding: 8px 10px;
+    }
+    
+    .videos-page .logo h1 {
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+    
+    /* MENU HORIZONTAL COMPACTO */
+    .videos-page nav ul {
+        gap: 8px;
+        padding-bottom: 5px;
+    }
+    
+    .videos-page nav ul li a {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+    
+    /* AJUSTES DE LAYOUT DE VÍDEO */
+    .video-feed {
+        margin-top: 50px;
+        height: calc(100vh - 50px);
+    }
+    
     .video-actions {
         right: 10px;
         bottom: 80px;
@@ -197,9 +273,55 @@
     }
     
     .video-indicator {
-        top: 70px;
+        top: 60px;
         right: 10px;
-        font-size: 12px;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    .action-btn {
+        padding: 3px;
+    }
+    
+    .action-count {
+        font-size: 10px;
+    }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 480px) {
+    .videos-page header {
+        padding: 6px 8px;
+    }
+    
+    .videos-page .logo h1 {
+        font-size: 0.9rem;
+    }
+    
+    .videos-page nav ul {
+        gap: 5px;
+    }
+    
+    .videos-page nav ul li a {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+    }
+    
+    .video-feed {
+        margin-top: 45px;
+        height: calc(100vh - 45px);
+    }
+}
+
+/* Para telas grandes */
+@media (min-width: 1200px) {
+    .videos-page nav ul {
+        gap: 20px;
+    }
+    
+    .videos-page nav ul li a {
+        font-size: 1rem;
+        padding: 8px 15px;
     }
 }
 
@@ -218,7 +340,21 @@
     transform: scale(0.95);
 }
 
-/* Scroll personalizado */
+/* Scroll personalizado para menu horizontal */
+.videos-page nav ul::-webkit-scrollbar {
+    height: 3px;
+}
+
+.videos-page nav ul::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+}
+
+.videos-page nav ul::-webkit-scrollbar-thumb {
+    background: #ffcc00;
+    border-radius: 10px;
+}
+
+/* Remove scroll da página principal */
 .videos-page::-webkit-scrollbar {
     display: none;
 }
