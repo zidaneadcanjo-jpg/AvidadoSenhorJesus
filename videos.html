@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vídeos sobre Jesus Cristo - mensagens inspiradoras e ensinamentos">
+    <title>Vídeos - A Vida do Senhor Jesus</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="videos.css">
+</head>
+<body>
+    <!-- ======= CABEÇALHO ======= -->
+    <header>
+        <div class="logo">
+            <h1>Vídeos Inspiradores</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="divulgue.html">Divulgue</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="milagres.html">Milagres</a></li>
+                <li><a href="videos.html" class="active">Vídeos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ======= PÁGINA DE VÍDEOS ======= -->
+    <section class="videos-page">
+        <div class="video-indicator" id="videoIndicator">1/5</div>
+        
+        <div class="video-feed" id="videoFeed">
+            <!-- Vídeo 1 -->
+            <div class="video-item active" data-id="1">
+                <div class="progress-bar"><div class="progress" id="progress1"></div></div>
+                <iframe 
+                    class="video-iframe"
+                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/2216784141828906&autoplay=1&muted=1&width=500"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-info">
+                    <div class="video-title">O versículo que os demônios não querem que você saiba</div>
+                    <div class="video-description">Efésios 6:10-12 - Revesti-vos da armadura de Deus</div>
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn" onclick="likeVideo(1)">
+                        <span style="font-size: 24px;">❤️</span>
+                        <span class="action-count" id="likes1">1.2K</span>
+                    </button>
+                    <button class="action-btn" onclick="commentVideo(1)">
+                        <span style="font-size: 24px;">💬</span>
+                        <span class="action-count" id="comments1">356</span>
+                    </button>
+                    <button class="action-btn" onclick="shareVideo(1)">
+                        <span style="font-size: 24px;">↗️</span>
+                        <span class="action-count">Partilhar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vídeo 2 -->
+            <div class="video-item" data-id="2">
+                <div class="progress-bar"><div class="progress" id="progress2"></div></div>
+                <iframe
+                    class="video-iframe"
+                    src="https://www.youtube.com/embed/7JJ3C8kLrz0?autoplay=1&mute=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-info">
+                    <div class="video-title">O Poder da Oração</div>
+                    <div class="video-description">Como conversar com Deus no seu dia a dia</div>
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn" onclick="likeVideo(2)">
+                        <span style="font-size: 24px;">❤️</span>
+                        <span class="action-count" id="likes2">2.4K</span>
+                    </button>
+                    <button class="action-btn" onclick="commentVideo(2)">
+                        <span style="font-size: 24px;">💬</span>
+                        <span class="action-count" id="comments2">891</span>
+                    </button>
+                    <button class="action-btn" onclick="shareVideo(2)">
+                        <span style="font-size: 24px;">↗️</span>
+                        <span class="action-count">Partilhar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vídeo 3 -->
+            <div class="video-item" data-id="3">
+                <div class="progress-bar"><div class="progress" id="progress3"></div></div>
+                <iframe
+                    class="video-iframe"
+                    src="https://www.youtube.com/embed/6g3Vf1Xqq3o?autoplay=1&mute=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-info">
+                    <div class="video-title">A Paz que Excede Todo Entendimento</div>
+                    <div class="video-description">Filipenses 4:6-7 - Não andeis ansiosos</div>
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn" onclick="likeVideo(3)">
+                        <span style="font-size: 24px;">❤️</span>
+                        <span class="action-count" id="likes3">1.8K</span>
+                    </button>
+                    <button class="action-btn" onclick="commentVideo(3)">
+                        <span style="font-size: 24px;">💬</span>
+                        <span class="action-count" id="comments3">542</span>
+                    </button>
+                    <button class="action-btn" onclick="shareVideo(3)">
+                        <span style="font-size: 24px;">↗️</span>
+                        <span class="action-count">Partilhar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vídeo 4 -->
+            <div class="video-item" data-id="4">
+                <div class="progress-bar"><div class="progress" id="progress4"></div></div>
+                <iframe
+                    class="video-iframe"
+                    src="https://www.youtube.com/embed/5JqYFL6Z0YA?autoplay=1&mute=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-info">
+                    <div class="video-title">Jesus Cura e Liberta</div>
+                    <div class="video-description">O poder transformador de Cristo em nossas vidas</div>
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn" onclick="likeVideo(4)">
+                        <span style="font-size: 24px;">❤️</span>
+                        <span class="action-count" id="likes4">3.1K</span>
+                    </button>
+                    <button class="action-btn" onclick="commentVideo(4)">
+                        <span style="font-size: 24px;">💬</span>
+                        <span class="action-count" id="comments4">923</span>
+                    </button>
+                    <button class="action-btn" onclick="shareVideo(4)">
+                        <span style="font-size: 24px;">↗️</span>
+                        <span class="action-count">Partilhar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vídeo 5 -->
+            <div class="video-item" data-id="5">
+                <div class="progress-bar"><div class="progress" id="progress5"></div></div>
+                <iframe
+                    class="video-iframe"
+                    src="https://www.youtube.com/embed/WbN7KJ0JNc4?autoplay=1&mute=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-info">
+                    <div class="video-title">A Volta de Jesus Está Próxima</div>
+                    <div class="video-description">Esteja preparado para o encontro com o Senhor</div>
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn" onclick="likeVideo(5)">
+                        <span style="font-size: 24px;">❤️</span>
+                        <span class="action-count" id="likes5">4.2K</span>
+                    </button>
+                    <button class="action-btn" onclick="commentVideo(5)">
+                        <span style="font-size: 24px;">💬</span>
+                        <span class="action-count" id="comments5">1.2K</span>
+                    </button>
+                    <button class="action-btn" onclick="shareVideo(5)">
+                        <span style="font-size: 24px;">↗️</span>
+                        <span class="action-count">Partilhar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="prevVideo()">⬆️</button>
+            <button class="nav-btn" onclick="nextVideo()">⬇️</button>
+        </div>
+    </section>
+
+    <script src="videos.js"></script>
+</body>
+</html>
