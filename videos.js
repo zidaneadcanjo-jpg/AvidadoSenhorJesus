@@ -23,22 +23,6 @@ const videos = [
         likes: 1800,
         comments: 542,
         embed: 'https://www.youtube.com/embed/6g3Vf1Xqq3o?autoplay=1&mute=1'
-    },
-    {
-        id: 4,
-        title: "Jesus Cura e Liberta",
-        description: "O poder transformador de Cristo em nossas vidas",
-        likes: 3100,
-        comments: 923,
-        embed: 'https://www.youtube.com/embed/5JqYFL6Z0YA?autoplay=1&mute=1'
-    },
-    {
-        id: 5,
-        title: "A Volta de Jesus Está Próxima",
-        description: "Esteja preparado para o encontro com o Senhor",
-        likes: 4200,
-        comments: 1200,
-        embed: 'https://www.youtube.com/embed/WbN7KJ0JNc4?autoplay=1&mute=1'
     }
 ];
 
@@ -51,22 +35,18 @@ function updateVideoIndicator() {
 }
 
 function showVideo(videoId) {
-    // Para qualquer progresso anterior
     if (progressInterval) {
         clearInterval(progressInterval);
     }
     
-    // Esconde todos os vídeos
     document.querySelectorAll('.video-item').forEach(video => {
         video.classList.remove('active');
     });
     
-    // Mostra o vídeo atual
     const currentVideoElement = document.querySelector(`[data-id="${videoId}"]`);
     if (currentVideoElement) {
         currentVideoElement.classList.add('active');
         
-        // Reinicia a barra de progresso
         const progressBar = document.getElementById(`progress${videoId}`);
         if (progressBar) {
             progressBar.style.width = '0%';
@@ -76,8 +56,6 @@ function showVideo(videoId) {
     
     currentVideo = videoId;
     updateVideoIndicator();
-    
-    // Atualiza o vídeo em destaque na home (se necessário)
     updateFeaturedVideo();
 }
 
@@ -88,12 +66,11 @@ function startProgressBar(videoId) {
     progressInterval = setInterval(() => {
         if (width >= 100) {
             clearInterval(progressInterval);
-            // Avança automaticamente para o próximo vídeo
             if (currentVideo < totalVideos) {
                 nextVideo();
             }
         } else {
-            width += 0.5; // Ajuste a velocidade conforme necessário
+            width += 0.5;
             progressBar.style.width = width + '%';
         }
     }, 100);
@@ -103,7 +80,6 @@ function nextVideo() {
     if (currentVideo < totalVideos) {
         showVideo(currentVideo + 1);
     } else {
-        // Volta para o primeiro vídeo
         showVideo(1);
     }
 }
@@ -112,7 +88,6 @@ function prevVideo() {
     if (currentVideo > 1) {
         showVideo(currentVideo - 1);
     } else {
-        // Vai para o último vídeo
         showVideo(totalVideos);
     }
 }
@@ -123,7 +98,6 @@ function likeVideo(videoId) {
         video.likes++;
         document.getElementById(`likes${videoId}`).textContent = formatCount(video.likes);
         
-        // Efeito visual no botão
         const likeBtn = document.querySelector(`[onclick="likeVideo(${videoId})"]`);
         likeBtn.style.transform = 'scale(1.3)';
         setTimeout(() => {
@@ -162,16 +136,13 @@ function formatCount(count) {
 }
 
 function updateFeaturedVideo() {
-    // Esta função pode ser usada para atualizar o vídeo em destaque na home
     const mostLiked = videos.reduce((prev, current) => 
         (prev.likes > current.likes) ? prev : current
     );
-    
-    // Salva no localStorage para usar na home
     localStorage.setItem('featuredVideo', JSON.stringify(mostLiked));
 }
 
-// CONTROLE POR SWIPE (para mobile)
+// CONTROLE POR SWIPE
 let startY = 0;
 let isSwiping = false;
 
@@ -215,7 +186,6 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', function() {
     showVideo(1);
     
-    // Verifica se há parâmetro de vídeo na URL
     const urlParams = new URLSearchParams(window.location.search);
     const videoParam = urlParams.get('video');
     if (videoParam && videoParam >= 1 && videoParam <= totalVideos) {
