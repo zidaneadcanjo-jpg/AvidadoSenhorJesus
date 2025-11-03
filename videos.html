@@ -1,128 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vídeos sobre Jesus Cristo - mensagens inspiradoras e ensinamentos">
-    <title>Vídeos - A Vida do Senhor Jesus</title>
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" href="videos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeos | A Vida do Senhor Jesus</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #000;
+      font-family: Arial, sans-serif;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+    .video-card {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: cover;
+    }
+    .overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .overlay h3 {
+      margin-bottom: 5px;
+    }
+    .actions {
+      position: absolute;
+      right: 20px;
+      bottom: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .actions button {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .actions button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
 </head>
 <body>
-    <!-- ======= CABEÇALHO ======= -->
-    <header>
-        <div class="logo">
-            <h1>Vídeos Inspiradores</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="divulgue.html">Divulgue</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="milagres.html">Milagres</a></li>
-                <li><a href="videos.html" class="active">Vídeos</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="contactos.html">Contactos</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- ======= PÁGINA DE VÍDEOS ======= -->
-    <section class="videos-page">
-        <div class="video-indicator" id="videoIndicator">1/5</div>
-        
-        <div class="video-feed" id="videoFeed">
-            <!-- Vídeo 1 -->
-            <div class="video-item active" data-id="1">
-                <iframe 
-                    class="video-iframe"
-                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/2216784141828906&autoplay=1&muted=1&width=500"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen>
-                </iframe>
-                <div class="video-info">
-                    <div class="video-title">O versículo que os demônios não querem que você saiba</div>
-                    <div class="video-description">Efésios 6:10-12 - Revesti-vos da armadura de Deus</div>
-                </div>
-                <div class="video-actions">
-                    <button class="action-btn" onclick="likeVideo(1)">
-                        <span style="font-size: 24px;">❤️</span>
-                        <span class="action-count" id="likes1">1.2K</span>
-                    </button>
-                    <button class="action-btn" onclick="commentVideo(1)">
-                        <span style="font-size: 24px;">💬</span>
-                        <span class="action-count" id="comments1">356</span>
-                    </button>
-                    <button class="action-btn" onclick="shareVideo(1)">
-                        <span style="font-size: 24px;">↗️</span>
-                        <span class="action-count">Partilhar</span>
-                    </button>
-                </div>
-            </div>
+  <div class="video-container" id="videoContainer">
+    <!-- Exemplo de vídeos do Facebook -->
+    <div class="video-card">
+      <iframe 
+        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61559030562265/videos/123456789012345/&show_text=false&width=500"
+        allowfullscreen>
+      </iframe>
+      <div class="overlay">
+        <h3>Vídeo 1 - Louvor e Adoração</h3>
+        <p>❤️ 320 curtidas • 💬 45 comentários</p>
+      </div>
+      <div class="actions">
+        <button>❤️</button>
+        <button>💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
 
-            <!-- Vídeo 2 -->
-            <div class="video-item" data-id="2">
-                <iframe
-                    class="video-iframe"
-                    src="https://www.youtube.com/embed/7JJ3C8kLrz0?autoplay=1&mute=1"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen>
-                </iframe>
-                <div class="video-info">
-                    <div class="video-title">O Poder da Oração</div>
-                    <div class="video-description">Como conversar com Deus no seu dia a dia</div>
-                </div>
-                <div class="video-actions">
-                    <button class="action-btn" onclick="likeVideo(2)">
-                        <span style="font-size: 24px;">❤️</span>
-                        <span class="action-count" id="likes2">2.4K</span>
-                    </button>
-                    <button class="action-btn" onclick="commentVideo(2)">
-                        <span style="font-size: 24px;">💬</span>
-                        <span class="action-count" id="comments2">891</span>
-                    </button>
-                    <button class="action-btn" onclick="shareVideo(2)">
-                        <span style="font-size: 24px;">↗️</span>
-                        <span class="action-count">Partilhar</span>
-                    </button>
-                </div>
-            </div>
+    <div class="video-card">
+      <iframe 
+        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61559030562265/videos/987654321098765/&show_text=false&width=500"
+        allowfullscreen>
+      </iframe>
+      <div class="overlay">
+        <h3>Vídeo 2 - Palavra do Dia</h3>
+        <p>❤️ 210 curtidas • 💬 23 comentários</p>
+      </div>
+      <div class="actions">
+        <button>❤️</button>
+        <button>💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+  </div>
 
-            <!-- Vídeo 3 -->
-            <div class="video-item" data-id="3">
-                <iframe
-                    class="video-iframe"
-                    src="https://www.youtube.com/embed/6g3Vf1Xqq3o?autoplay=1&mute=1"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen>
-                </iframe>
-                <div class="video-info">
-                    <div class="video-title">A Paz que Excede Todo Entendimento</div>
-                    <div class="video-description">Filipenses 4:6-7 - Não andeis ansiosos</div>
-                </div>
-                <div class="video-actions">
-                    <button class="action-btn" onclick="likeVideo(3)">
-                        <span style="font-size: 24px;">❤️</span>
-                        <span class="action-count" id="likes3">1.8K</span>
-                    </button>
-                    <button class="action-btn" onclick="commentVideo(3)">
-                        <span style="font-size: 24px;">💬</span>
-                        <span class="action-count" id="comments3">542</span>
-                    </button>
-                    <button class="action-btn" onclick="shareVideo(3)">
-                        <span style="font-size: 24px;">↗️</span>
-                        <span class="action-count">Partilhar</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="prevVideo()">⬆️</button>
-            <button class="nav-btn" onclick="nextVideo()">⬇️</button>
-        </div>
-    </section>
-
-    <script src="videos.js"></script>
 </body>
 </html>
