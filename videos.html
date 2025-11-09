@@ -1,114 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vídeos | A Vida do Senhor Jesus</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background: #000;
-      font-family: Arial, sans-serif;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-    .video-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-    .video-card {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #000;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      object-fit: cover;
-    }
-    .overlay {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    }
-    .overlay h3 {
-      margin-bottom: 5px;
-    }
-    .actions {
-      position: absolute;
-      right: 20px;
-      bottom: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-    .actions button {
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: #fff;
-      font-size: 20px;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    .actions button:hover {
-      background: rgba(255,255,255,0.3);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Vídeos - A Vida do Senhor Jesus</title>
+    <link rel="stylesheet" href="videos.css">
 </head>
 <body>
 
-  <div class="video-container" id="videoContainer">
-    <!-- Exemplo de vídeos do Facebook -->
-    <div class="video-card">
-      <iframe 
-        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61559030562265/videos/123456789012345/&show_text=false&width=500"
-        allowfullscreen>
-      </iframe>
-      <div class="overlay">
-        <h3>Vídeo 1 - Louvor e Adoração</h3>
-        <p>❤️ 320 curtidas • 💬 45 comentários</p>
-      </div>
-      <div class="actions">
-        <button>❤️</button>
-        <button>💬</button>
-        <button>🔗</button>
-      </div>
+<!-- Menu parecido com Facebook -->
+<header>
+    <div class="menu">
+        <a href="index.html" class="logo">A Vida do Senhor Jesus</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="videos.html" class="active">Vídeos</a>
+        </nav>
     </div>
+</header>
 
-    <div class="video-card">
-      <iframe 
-        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61559030562265/videos/987654321098765/&show_text=false&width=500"
-        allowfullscreen>
-      </iframe>
-      <div class="overlay">
-        <h3>Vídeo 2 - Palavra do Dia</h3>
-        <p>❤️ 210 curtidas • 💬 23 comentários</p>
-      </div>
-      <div class="actions">
-        <button>❤️</button>
-        <button>💬</button>
-        <button>🔗</button>
-      </div>
-    </div>
-  </div>
+<main>
+    <section class="section-destaque">
+        <h2>Vídeo da Semana</h2>
+        <div id="video-semana" class="video-card destaque"></div>
+    </section>
+
+    <section class="section-recentes">
+        <h2>Últimos Vídeos</h2>
+        <div id="videos-recentes"></div>
+    </section>
+</main>
+
+<script src="videos.js"></script>
+<script>
+const videoSemanaDiv = document.getElementById('video-semana');
+const videosRecentesDiv = document.getElementById('videos-recentes');
+
+videos.forEach(v => {
+    const videoHTML = `
+        <h3>${v.titulo}</h3>
+        <iframe src="${v.link}" allowfullscreen></iframe>
+        <p>${v.descricao}</p>
+    `;
+    if (v.destaque) {
+        videoSemanaDiv.innerHTML = videoHTML;
+    } else {
+        videosRecentesDiv.innerHTML += `<div class="video-card">${videoHTML}</div>`;
+    }
+});
+</script>
 
 </body>
 </html>
