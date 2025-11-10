@@ -127,7 +127,7 @@ nav a.active {
         }
 /* Menu deslizando em telas pequenas */
 nav ul {
-    display: flex;
+    display: none;
     gap: 15px;
     overflow-x: auto;
     white-space: nowrap;
