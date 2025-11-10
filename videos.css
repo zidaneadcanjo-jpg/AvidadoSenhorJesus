@@ -21,7 +21,7 @@ body {
 /* Container geral */
 .reels-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
     margin: auto;
 }
 
@@ -30,6 +30,7 @@ body {
     position: relative;
     padding-bottom: 40px;
     border-bottom: 1px solid #222;
+    margin-bottom: 25px;
 }
 
 /* Vídeo */
@@ -38,22 +39,23 @@ body {
     height: 500px;
     background: #000;
     border: none;
+    border-radius: 10px;
 }
 
 /* Botões laterais */
 .side-actions {
     position: absolute;
-    right: 10px;
+    right: 12px;
     bottom: 140px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     text-align: center;
 }
 
 .action {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .icon {
@@ -61,7 +63,7 @@ body {
     display: block;
 }
 
-/* Info do autor */
+/* Informações do autor */
 .info {
     display: flex;
     align-items: center;
@@ -70,9 +72,10 @@ body {
 }
 
 .info img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 30px;
+    background: #333;
 }
 
 .info h3 {
@@ -85,5 +88,3 @@ body {
     font-size: 14px;
     color: #ccc;
 }
-
-
