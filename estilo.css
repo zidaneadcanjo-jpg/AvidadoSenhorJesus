@@ -1,322 +1,128 @@
-/* ======= ESTILOS GERAIS ======= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 body {
-    background-color: #fdfdfd;
-    color: #333;
-    line-height: 1.6;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
 }
 
-/* ======= CABEÇALHO ======= */
+/* HEADER */
 header {
-    background-color: #1b263b;
+    background: #111;
+    padding: 15px 10px;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .logo h1 {
-    font-size: 1.4rem;
-    font-weight: 600;
+    margin: 0;
+    font-size: 22px;
 }
 
 nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+    padding: 6px 8px;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-    color: #ffcc00;
+nav a.active {
+    border-bottom: 2px solid #fff;
 }
 
-/* ======= BANNER ======= */
+/* BANNER */
 .banner {
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover no-repeat;
-    height: 85vh;
+    background: url('banner.jpg') center/cover no-repeat;
+    height: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
-    position: relative;
-}
-
-.banner::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.banner-texto {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
 }
 
 .banner-texto h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.banner-texto span {
-    color: #ffcc00;
-}
-
-.banner-texto p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    font-size: 32px;
 }
 
 .btn {
-    background-color: #ffcc00;
-    color: #000;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #fff;
-}
-
-/* ======= SEÇÃO SOBRE ======= */
-.sobre {
-    padding: 60px 10%;
-    text-align: center;
-}
-
-.sobre h2 {
-    font-size: 2rem;
-    color: #1b263b;
-    margin-bottom: 15px;
-}
-
-.sobre p {
-    max-width: 700px;
-    margin: auto;
-}
-
-/* ======= SEÇÃO VERSÍCULO ======= */
-.versiculo {
-    background-color: #f3f4f6;
-    padding: 50px 10%;
-    text-align: center;
-}
-
-.versiculo blockquote {
-    font-style: italic;
-    font-size: 1.3rem;
-    color: #444;
-}
-
-.versiculo span {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #1b263b;
-}
-
-/* ======= RODAPÉ ======= */
-footer {
-    background-color: #1b263b;
+    background: #d62828;
+    padding: 12px 20px;
     color: #fff;
-    text-align: center;
-    padding: 25px 10%;
-    font-size: 0.95rem;
-}
-
-footer a {
-    color: #ffcc00;
+    border-radius: 6px;
     text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
 }
 
-footer a:hover {
-    text-decoration: underline;
+/* VIDEO DA SEMANA */
+#video-da-semana {
+    padding: 30px 15px;
+    text-align: center;
 }
 
-/* ======= RESPONSIVIDADE ======= */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .banner-texto h2 {
-        font-size: 1.8rem;
-    }
-
-    .banner-texto p {
-        font-size: 1rem;
-    }
+#video-semana-box iframe {
+    width: 100%;
+    max-width: 550px;
+    height: 320px;
+    border: none;
 }
 
+/* VERSÍCULO */
+.versiculo {
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
+    border-top: 1px solid #ddd;
+}
 
-
-
-//   Aqui é o css do pastor 
-
+/* VIDEO CARD */
 .video-card-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  background-color: #f5f5f5;
+    padding: 20px;
 }
 
 .video-card {
-  max-width: 700px;
-  width: 100%;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  transition: transform 0.3s ease;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
 }
 
-.video-card:hover {
-  transform: scale(1.02);
+.video-container iframe {
+    width: 100%;
+    height: 420px;
+    border-radius: 8px;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-title {
-  font-size: 1.6em;
-  color: #222;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.card-description {
-  font-size: 1em;
-  line-height: 1.6;
-  color: #444;
-  text-align: justify;
-}
-
-.read-more-btn {
-  display: block;
-  margin: 20px auto 0;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.read-more-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Modal */
+/* MODAL */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding-top: 60px;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    padding-top: 100px;
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: auto;
-  padding: 20px;
-  border-radius: 12px;
-  width: 80%;
-  max-width: 700px;
-  animation: fadeIn 0.4s ease;
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.close-btn:hover {
-  color: #000;
-}
-
-.modal-title {
-  margin-top: 0;
-  color: #222;
-}
-
-.modal-text {
-  font-size: 1em;
-  line-height: 1.8;
-  color: #333;
-  text-align: justify;
-}
-#video-da-semana {
-    background: #111;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px;
-}
-
-#video-da-semana h2 {
-    margin-top: 0;
-}
-
-.video-semana-card iframe {
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-}
-
-.info-semana {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+        }
+    
