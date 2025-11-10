@@ -125,4 +125,34 @@ nav a.active {
     font-size: 22px;
     cursor: pointer;
         }
+/* Menu deslizando em telas pequenas */
+nav ul {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+nav ul::-webkit-scrollbar {
+    display: none;
+}
+
+/* Video da semana ajustado ao tema escuro */
+#video-da-semana {
+    padding: 25px;
+    text-align: center;
+    background: #111;
+    color: #fff;
+    border-top: 1px solid #222;
+}
+
+#video-semana-box iframe {
+    width: 100%;
+    max-width: 450px;
+    height: 320px;
+    border: none;
+    border-radius: 8px;
+}
+
     
