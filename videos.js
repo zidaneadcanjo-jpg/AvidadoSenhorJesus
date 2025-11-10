@@ -1,26 +1,32 @@
-const videos = [
-    {
-        titulo: "Vídeo da Semana",
-        link: "https://www.facebook.com/share/r/1CnDQWm61D/",
-        descricao: "Este é o vídeo da semana, mais curtido, comentado e compartilhado.",
-        destaque: true
-    },
-    {
-        titulo: "Vídeo Inspirador 1",
-        link: "https://www.facebook.com/share/v/19w3qG1i7c/",
-        descricao: "Mensagem de fé e esperança compartilhada recentemente.",
-        destaque: false
-    },
-    {
-        titulo: "Vídeo Inspirador 2",
-        link: "https://www.facebook.com/share/r/1SdPDAZGKi/",
-        descricao: "Um vídeo emocionante para refletir sobre a vida do Senhor Jesus.",
-        destaque: false
-    },
-    {
-        titulo: "Vídeo Inspirador 3",
-        link: "https://www.facebook.com/reel/791922876692666/?mibextid=rS40aB7S9Ucbxw6v",
-        descricao: "Vídeo curto de inspiração e fé para todos os dias.",
-        destaque: false
-    }
-];
+fetch("videos.json")
+    .then(res => res.json())
+    .then(videos => {
+        const container = document.querySelector(".reels-container");
+
+        videos.forEach(v => {
+            const reel = document.createElement("div");
+            reel.classList.add("reel");
+
+            reel.innerHTML = `
+                <div class="video-box">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=${v.link}" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div class="side-actions">
+                    <div class="action"><span class="icon">👍</span><p>${v.likes}</p></div>
+                    <div class="action"><span class="icon">💬</span><p>${v.comments}</p></div>
+                    <div class="action"><span class="icon">↗️</span><p>${v.shares}</p></div>
+                </div>
+
+                <div class="info">
+                    <img src="https://static.thenounproject.com/png/363633-200.png">
+                    <div>
+                        <h3>${v.perfil}</h3>
+                        <p>${v.descricao}</p>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(reel);
+        });
+    });
