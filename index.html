@@ -7,23 +7,6 @@
     <title>A Vida do Senhor Jesus</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-  <script>
-  function openModal() {
-    document.getElementById("storyModal").style.display = "block";
-  }
-
-  function closeModal() {
-    document.getElementById("storyModal").style.display = "none";
-  }
-
-  window.onclick = function (event) {
-    const modal = document.getElementById("storyModal");
-    if (event.target === modal) {
-      closeModal();
-    }
-  };
-</script>
-
 
 <body>
 
@@ -35,7 +18,7 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Início</a></li>
-                 <li><a href="divulgue.html">Divulgue</a></li>
+                <li><a href="divulgue.html">Divulgue</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="milagres.html">Milagres</a></li>
                 <li><a href="videos.html">Videos</a></li>
@@ -45,7 +28,7 @@
         </nav>
     </header>
 
-    <!-- ======= SEÇÃO DE BANNER ======= -->
+    <!-- ======= BANNER ======= -->
     <section class="banner">
         <div class="banner-texto">
             <h2><span>A Vida do Senhor Jesus</span></h2>
@@ -54,96 +37,68 @@
         </div>
     </section>
 
-    <!-- ======= Video da Semana ======= -->
-    
-        <section id="video-da-semana">
-    <h2>Vídeo da Semana</h2>
-    <div id="video-semana-box"></div>
-</section>
+    <!-- ======= VIDEO DA SEMANA ======= -->
+    <section id="video-da-semana">
+        <h2>Vídeo da Semana</h2>
+        <div id="video-semana-box"></div>
+    </section>
 
-<script src="video-da-semana.js"></script>
-
-
+    <!-- ======= VERSÍCULO ======= -->
     <section class="versiculo">
         <blockquote>
             “Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai senão por mim.” <br>
             <span>— João 14:6</span>
         </blockquote>
     </section>
-    
 
-    
-<section class="video-card-section">
-  <div class="video-card">
-    <div class="video-container">
-      <!-- Vídeo do Facebook -->
-      <iframe
-        src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/2216784141828906&show_text=false&width=700"
-        width="100%"
-        height="400"
-        style="border:none;overflow:hidden"
-        scrolling="no"
-        frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-      ></iframe>
+    <!-- ======= CARTÃO DO VÍDEO ======= -->
+    <section class="video-card-section">
+        <div class="video-card">
+            <div class="video-container">
+                <iframe
+                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/2216784141828906&show_text=false&width=700"
+                    style="border:none;overflow:hidden;width:100%;height:420px"
+                    scrolling="no"
+                    frameborder="0"
+                    allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+            </div>
+
+            <div class="card-content">
+                <h2 class="card-title">O versículo que os demônios não querem que você saiba</h2>
+                <p class="card-description">
+                    Baseado em Efésios 6:10-12, esta mensagem poderosa nos lembra que a nossa
+                    luta não é contra pessoas, mas contra forças espirituais malignas.
+                </p>
+                <button class="read-more-btn" onclick="openModal()">Ler mais</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= MODAL ======= -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">O versículo que os demônios não querem que você saiba</h2>
+
+            <p class="modal-text">
+                Em Efésios 6:10-12, a Palavra de Deus nos alerta:
+                <strong>“Fortalecei-vos no Senhor e na força do seu poder...”</strong>
+                <br><br>
+                A verdadeira batalha é espiritual, não física.
+            </p>
+        </div>
     </div>
 
-    <div class="card-content">
-      <h2 class="card-title">O versículo que os demônios não querem que você saiba</h2>
-      <p class="card-description">
-        Baseado em Efésios 6:10-12, esta mensagem poderosa nos lembra que nossa
-        luta não é contra pessoas, mas contra forças espirituais malignas. Saiba
-        como se revestir da armadura de Deus e vencer o mal todos os dias.
-      </p>
-      <button class="read-more-btn" onclick="openModal()">Ler mais</button>
-    </div>
-  </div>
-</section>
+    <!-- SCRIPTS -->
+    <script src="modal.js"></script>
+    <script src="video-da-semana.js"></script>
 
-<!-- Modal (história completa) -->
-<div id="storyModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2 class="modal-title">O versículo que os demônios não querem que você saiba</h2>
-    <p class="modal-text">
-      Em Efésios 6:10-12, a Palavra de Deus nos alerta:  
-      <strong>“Fortalecei-vos no Senhor e na força do seu poder. Revesti-vos de toda a armadura de Deus, para que possais estar firmes contra as ciladas do diabo.”</strong>
-
-      <br><br>
-      Muitos cristãos vivem cansados, abatidos e sem forças, porque esquecem que
-      a verdadeira batalha não é física, mas espiritual. O inimigo age de forma
-      sutil, tentando roubar nossa fé, nossa alegria e a comunhão com Deus.
-
-      <br><br>
-      Mas quando você conhece este versículo e o coloca em prática, o diabo
-      perde força sobre sua vida. Ele não suporta ver um cristão que ora, que
-      confia na Palavra e que veste a armadura de Deus todos os dias.
-
-      <br><br>
-      A armadura de Deus é a sua proteção diária:  
-      o <strong>capacete da salvação</strong>, a <strong>couraça da justiça</strong>, o
-      <strong>escudo da fé</strong>, a <strong>espada do Espírito</strong> (que é a Palavra de Deus),
-      e os <strong>sapatos do evangelho da paz</strong>.
-
-      <br><br>
-      Quando você se reveste dessas verdades, nenhum mal pode prevalecer.  
-      Os demônios sabem o poder que há nesse versículo — por isso, tentam fazer
-      o povo de Deus esquecê-lo. Mas aquele que permanece firme na fé é
-      protegido pelo próprio Senhor dos Exércitos.
-
-      <br><br>
-      🌿 <em>“Maior é o que está em vós do que o que está no mundo.”</em>  
-      (1 João 4:4)
-    </p>
-  </div>
-</div>
-
-    
     <!-- ======= RODAPÉ ======= -->
     <footer id="contato">
         <p>© 2025 A Vida do Senhor Jesus. Todos os direitos reservados.</p>
-       <a href="contactos.html"> <p><trong>Apoie a manutenção do site</trong></p></a>
+        <a href="contactos.html"><p><strong>Apoie a manutenção do site</strong></p></a>
     </footer>
 
 </body>
