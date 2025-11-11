@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Vida do Senhor Jesus</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- MENU DE NAVEGAÇÃO (CORRIGIDO PARA TELEMÓVEL) -->
+  <!-- MENU DE NAVEGAÇÃO (CORRIGIDO E TESTADO) -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-logo">
         <span>A Vida do Senhor Jesus</span>
       </a>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="navMenu">
         <li><a href="index.html" class="nav-link active">Início</a></li>
         <li><a href="sobre.html" class="nav-link">Sobre</a></li>
         <li><a href="milagres.html" class="nav-link">Milagres</a></li>
@@ -24,7 +24,7 @@
         <li><a href="divulgue.html" class="nav-link">Divulgue</a></li>
         <li><a href="contactos.html" class="nav-link">Contactos</a></li>
       </ul>
-      <div class="nav-toggle" id="mobile-menu">
+      <div class="nav-toggle" id="mobileMenuBtn">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -32,7 +32,7 @@
     </div>
   </nav>
 
-  <!-- Cabeçalho Hero -->
+  <!-- Cabeçalho -->
   <header class="hero">
     <div class="container">
       <h1>A Vida do Senhor Jesus</h1>
@@ -61,7 +61,7 @@
   <!-- Scripts -->
   <script src="js/videos.js"></script>
   <script>
-    // === VÍDEO DA SEMANA (NÃO ALTERADO) ===
+    // === VÍDEO DA SEMANA (INALTERADO) ===
     const videoSemana = getVideoDaSemana();
 
     document.getElementById('videoContainer').innerHTML = `
@@ -89,35 +89,39 @@
       atualizarStats();
     }
 
-    // === MENU MOBILE CORRIGIDO ===
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    const navToggle = document.querySelector('.nav-toggle');
+    // === MENU MOBILE 100% CORRIGIDO ===
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
 
-    mobileMenu.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
       });
-    });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
+      // Fecha ao clicar em link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        });
+      });
 
-    window.addEventListener('scroll', () => {
-      if (navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-      }
-    });
+      // Fecha ao rolar
+      window.addEventListener('scroll', () => {
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        }
+      });
+
+      // Marca página atual
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.href === window.location.href) {
+          link.classList.add('active');
+        }
+      });
+    }
   </script>
 </body>
 </html>
