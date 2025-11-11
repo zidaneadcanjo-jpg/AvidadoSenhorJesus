@@ -1,244 +1,89 @@
-/* css/style.css */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vídeos | A Vida do Senhor Jesus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-  color: #333;
-  line-height: 1.6;
-}
+  <!-- Cabeçalho Simples -->
+  <header class="header-simple">
+    <div class="container">
+      <h1>Vídeos</h1>
+      <a href="index.html" class="btn small">Início</a>
+    </div>
+  </header>
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  <!-- Feed de Vídeos -->
+  <section class="container feed" id="feedVideos"></section>
 
-/* Cabeçalho Hero */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 120px 20px;
-}
+  <!-- Scripts -->
+  <script src="js/videos.js"></script>
+  <script>
+    const feed = document.getElementById('feedVideos');
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.8rem;
-  margin-bottom: 12px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
+    videos.forEach((video, index) => {
+      const isSemana = video.id === getVideoDaSemana().id;
 
-.subtitle {
-  font-size: 1.4rem;
-  font-style: italic;
-  opacity: 0.9;
-}
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      if (isSemana) card.innerHTML += '<div class="badge">Vídeo da Semana</div>';
 
-/* Vídeo da Semana */
-.video-semana {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  margin: 50px 0;
-  text-align: center;
-}
+      card.innerHTML += `
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>${video.title}</h3>
+          <p class="verse">${video.verse}</p>
+          <div class="actions">
+            <button onclick="curtir(${index})"> <span id="like${index}">${video.likes}</span></button>
+            <button onclick="toggleComment(${index})"> <span id="comm${index}">${video.comments.length}</span></button>
+          </div>
+          <div id="commentsList${index}" class="comments-list"></div>
+          <div id="commentBox${index}" style="display:none;">
+            <textarea id="textarea${index}" placeholder="Escreva um comentário..."></textarea>
+            <button class="btn small" onclick="enviarComentario(${index})">Enviar</button>
+          </div>
+        </div>
+      `;
+      feed.appendChild(card);
+      updateComments(index);
+    });
 
-.video-semana h2 {
-  font-family: 'Playfair Display', serif;
-  color: #1a5fb4;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-}
+    function curtir(i) {
+      videos[i].likes++;
+      document.getElementById(`like${i}`).textContent = videos[i].likes;
+      saveVideoData();
+    }
 
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  margin: 20px 0;
-}
+    function toggleComment(i) {
+      const box = document.getElementById(`commentBox${i}`);
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-}
+    function enviarComentario(i) {
+      const textarea = document.getElementById(`textarea${i}`);
+      const text = textarea.value.trim();
+      if (text) {
+        videos[i].comments.push(text);
+        document.getElementById(`comm${i}`).textContent = videos[i].comments.length;
+        textarea.value = '';
+        updateComments(i);
+        saveVideoData();
+      }
+    }
 
-blockquote {
-  font-size: 1.5rem;
-  font-style: italic;
-  color: #1a5fb4;
-  margin: 25px 0;
-  padding: 18px;
-  border-left: 5px solid #1a5fb4;
-  background: #f0f7ff;
-  border-radius: 8px;
-}
-
-cite {
-  display: block;
-  margin-top: 12px;
-  font-weight: 600;
-  color: #555;
-}
-
-.stats {
-  margin: 15px 0;
-  font-weight: 600;
-  color: #555;
-}
-
-/* Botões */
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  background: #1a5fb4;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-  margin: 8px;
-}
-
-.btn:hover {
-  background: #0d47a1;
-  transform: translateY(-2px);
-}
-
-.btn.secondary {
-  background: #6c757d;
-}
-
-.btn.secondary:hover {
-  background: #5a6268;
-}
-
-.btn.small {
-  padding: 6px 14px;
-  font-size: 0.9rem;
-}
-
-/* Cabeçalho Simples */
-.header-simple {
-  background: #1a5fb4;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.header-simple h1 {
-  display: inline;
-  font-size: 2rem;
-  margin: 0;
-}
-
-/* Feed de Vídeos */
-.feed { margin: 30px 0; }
-
-.video-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  margin-bottom: 35px;
-  position: relative;
-}
-
-.badge {
-  position: absolute;
-  top: 12px; right: 12px;
-  background: #e63946;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  z-index: 2;
-}
-
-.video-info {
-  padding: 22px;
-}
-
-.video-info h3 {
-  margin: 0 0 10px;
-  color: #1a5fb4;
-  font-size: 1.4rem;
-}
-
-.verse {
-  font-style: italic;
-  color: #666;
-  margin-bottom: 15px;
-  font-size: 0.95rem;
-}
-
-.actions button {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  margin-right: 18px;
-  padding: 6px;
-  transition: 0.2s;
-}
-
-.actions button:hover {
-  transform: scale(1.2);
-}
-
-textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  border: 1.5px solid #ddd;
-  border-radius: 10px;
-  font-family: inherit;
-  resize: vertical;
-}
-
-.comments-list {
-  margin-top: 15px;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.comment {
-  background: #f0f7ff;
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin: 8px 0;
-  font-size: 0.95rem;
-  border-left: 3px solid #1a5fb4;
-}
-
-/* Rodapé */
-footer {
-  text-align: center;
-  padding: 35px;
-  background: #1a1a1a;
-  color: #ccc;
-  font-size: 0.95rem;
-  margin-top: 50px;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.8rem; }
-  .hero { padding: 90px 20px; }
-  .video-semana, .video-info { padding: 25px; }
-  .btn { padding: 10px 20px; font-size: 0.9rem; }
-}
+    function updateComments(i) {
+      const list = document.getElementById(`commentsList${i}`);
+      list.innerHTML = videos[i].comments.map(c => 
+        `<p class="comment"><strong>Visitante:</strong> ${c}</p>`
+      ).join('');
+    }
+  </script>
+</body>
+</html>
