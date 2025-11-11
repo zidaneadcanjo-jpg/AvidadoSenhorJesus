@@ -1,106 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Vida do Senhor Jesus — um site dedicado à fé, à reflexão e ao amor de Cristo.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Vida do Senhor Jesus</title>
-    <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Vida do Senhor Jesus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-    <!-- ======= CABEÇALHO ======= -->
-    <header>
-        <div class="logo">
-            <h1>A Vida do Senhor Jesus</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="divulgue.html">Divulgue</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="milagres.html">Milagres</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="contactos.html">Contactos</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- ======= BANNER ======= -->
-    <section class="banner">
-        <div class="banner-texto">
-            <h2><span>A Vida do Senhor Jesus</span></h2>
-            <p>Descubra os milagres, ensinamentos e amor de Cristo. Que sua fé cresça a cada visita.</p>
-            <a href="milagres.html" class="btn">Ver milagres</a>
-        </div>
-    </section>
-
-    <!-- ======= VIDEO DA SEMANA ======= -->
-    <section id="video-da-semana">
-        <h2>Vídeo da Semana</h2>
-        <div id="video-semana-box"></div>
-    </section>
-
-    <!-- ======= VERSÍCULO ======= -->
-    <section class="versiculo">
-        <blockquote>
-            “Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai senão por mim.” <br>
-            <span>— João 14:6</span>
-        </blockquote>
-    </section>
-
-    <!-- ======= CARTÃO DO VÍDEO ======= -->
-    <section class="video-card-section">
-        <div class="video-card">
-            <div class="video-container">
-                <iframe
-                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/2216784141828906&show_text=false&width=700"
-                    style="border:none;overflow:hidden;width:100%;height:420px"
-                    scrolling="no"
-                    frameborder="0"
-                    allowfullscreen="true"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                </iframe>
-            </div>
-
-            <div class="card-content">
-                <h2 class="card-title">O versículo que os demônios não querem que você saiba</h2>
-                <p class="card-description">
-                    Baseado em Efésios 6:10-12, esta mensagem poderosa nos lembra que a nossa
-                    luta não é contra pessoas, mas contra forças espirituais malignas.
-                </p>
-                <button class="read-more-btn" onclick="openModal()">Ler mais</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= MODAL ======= -->
-    <div id="storyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 class="modal-title">O versículo que os demônios não querem que você saiba</h2>
-
-            <p class="modal-text">
-                Em Efésios 6:10-12, a Palavra de Deus nos alerta:
-                <strong>“Fortalecei-vos no Senhor e na força do seu poder...”</strong>
-                <br><br>
-                A verdadeira batalha é espiritual, não física.
-            </p>
-        </div>
+  <!-- Cabeçalho -->
+  <header class="hero">
+    <div class="container">
+      <h1>A Vida do Senhor Jesus</h1>
+      <p class="subtitle">Conheça o caminho, a verdade e a vida</p>
     </div>
+  </header>
 
-    <!-- SCRIPTS -->
-    <script src="modal.js"></script>
-<script src="video-da-semana.js?v=2"></script>
-    
-    <!-- ======= RODAPÉ ======= -->
-    <footer id="contato">
-        <p>© 2025 A Vida do Senhor Jesus. Todos os direitos reservados.</p>
-        <a href="contactos.html"><p><strong>Apoie a manutenção do site</strong></p></a>
-    </footer>
+  <!-- Vídeo da Semana -->
+  <section class="video-semana container" id="videoSemana">
+    <h2>Video da Semana</h2>
+    <div id="videoContainer"></div>
+    <blockquote id="verseQuote"></blockquote>
+    <p class="stats">
+      <span id="likesCount">0</span> curtidas • 
+      <span id="commentsCount">0</span> comentários
+    </p>
+    <button class="btn" onclick="curtirVideoSemana()">Curtir</button>
+    <a href="videos.html" class="btn secondary">Ver Todos os Vídeos</a>
+  </section>
 
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 A Vida do Senhor Jesus | Feito com amor em Cristo</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/videos.js"></script>
+  <script>
+    const videoSemana = getVideoDaSemana();
+
+    document.getElementById('videoContainer').innerHTML = `
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <h3>${videoSemana.title}</h3>
+    `;
+
+    document.getElementById('verseQuote').innerHTML = `
+      “${videoSemana.verse}” 
+      <cite>— Bíblia Sagrada</cite>
+    `;
+
+    function atualizarStats() {
+      document.getElementById('likesCount').textContent = videoSemana.likes;
+      document.getElementById('commentsCount').textContent = videoSemana.comments.length;
+    }
+    atualizarStats();
+
+    function curtirVideoSemana() {
+      videoSemana.likes++;
+      saveVideoData();
+      atualizarStats();
+    }
+  </script>
 </body>
 </html>
