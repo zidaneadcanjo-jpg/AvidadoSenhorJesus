@@ -102,17 +102,41 @@
       atualizarStats();
     }
 
-    // Menu mobile
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    mobileMenu.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+<script>
+  // MENU MOBILE - VERSÃO CORRIGIDA
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navMenu = document.querySelector('.nav-menu');
+  const navToggle = document.querySelector('.nav-toggle');
+
+  // Abrir/Fechar
+  mobileMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+  });
+
+  // Fechar ao clicar em link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
     });
-    document.querySelectorAll('.nav-link').forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
+  });
+
+  // Marca página atual
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('active');
+    }
+  });
+
+  // Fecha menu ao rolar (opcional)
+  window.addEventListener('scroll', () => {
+    if (navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+    }
+  });
+</script>
   </script>
 </body>
 </html>
