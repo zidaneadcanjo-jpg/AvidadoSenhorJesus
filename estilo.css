@@ -243,15 +243,15 @@ footer {
   .btn { padding: 10px 20px; font-size: 0.9rem; }
 }
 
-/* MENU MOBILE - 100% FUNCIONAL */
+/* MENU MOBILE - GARANTIDO NO TELEMÓVEL */
 .navbar {
-  background: #1a5fb4;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  background: #1a5fb4;
+  z-index: 99999;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .nav-container {
@@ -260,14 +260,17 @@ footer {
   align-items: center;
   padding: 0 20px;
   height: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav-logo {
   color: white;
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   text-decoration: none;
+  z-index: 100000;
 }
 
 .nav-logo span { color: #ffd700; }
@@ -280,24 +283,26 @@ footer {
   height: calc(100vh - 70px);
   background: #0d47a1;
   flex-direction: column;
-  transition: left 0.4s ease;
-  padding-top: 20px;
+  transition: left 0.35s ease;
+  padding: 20px 0;
   overflow-y: auto;
+  z-index: 99998;
 }
 
 .nav-menu.active {
-  left: 0;
+  left: 0 !important;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  padding: 18px 20px;
+  padding: 18px 25px;
   font-weight: 600;
-  font-size: 1.1rem;
-  width: 100%;
+  font-size: 1.15rem;
   text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  display: block;
+  width: 100%;
 }
 
 .nav-link:hover,
@@ -309,6 +314,9 @@ footer {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  z-index: 100000;
+  padding: 5px;
+  touch-action: manipulation;
 }
 
 .bar {
@@ -316,19 +324,13 @@ footer {
   height: 3px;
   background: white;
   margin: 3px 0;
-  border-radius: 2px;
+  border-radius: 3px;
   transition: 0.3s;
 }
 
-.nav-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-.nav-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.nav-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
+.nav-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+.nav-toggle.active .bar:nth-child(2) { opacity: 0; }
+.nav-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
 /* Desktop */
 @media (min-width: 769px) {
@@ -349,4 +351,8 @@ footer {
   .nav-toggle { display: none; }
 }
 
-body { padding-top: 70px; margin: 0; }
+body { 
+  padding-top: 70px; 
+  margin: 0;
+  touch-action: pan-y;
+}
