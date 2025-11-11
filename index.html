@@ -9,6 +9,30 @@
 </head>
 <body>
 
+  <!-- === MENU AQUI === -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span>A Vida do Senhor Jesus</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Início</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+        <li><a href="milagres.html" class="nav-link">Milagres</a></li>
+        <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+        <li><a href="videos.html" class="nav-link">Vídeos</a></li>
+        <li><a href="divulgue.html" class="nav-link">Divulgue</a></li>
+        <li><a href="contactos.html" class="nav-link">Contactos</a></li>
+      </ul>
+      <div class="nav-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+  <!-- === FIM DO MENU === -->
+
   <!-- Cabeçalho -->
   <header class="hero">
     <div class="container">
@@ -19,7 +43,7 @@
 
   <!-- Vídeo da Semana -->
   <section class="video-semana container" id="videoSemana">
-    <h2>Video da Semana</h2>
+    <h2>Vídeo da Semana</h2>
     <div id="videoContainer"></div>
     <blockquote id="verseQuote"></blockquote>
     <p class="stats">
@@ -39,7 +63,6 @@
   <script src="js/videos.js"></script>
   <script>
     const videoSemana = getVideoDaSemana();
-
     document.getElementById('videoContainer').innerHTML = `
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" 
@@ -47,23 +70,32 @@
       </div>
       <h3>${videoSemana.title}</h3>
     `;
-
     document.getElementById('verseQuote').innerHTML = `
       “${videoSemana.verse}” 
       <cite>— Bíblia Sagrada</cite>
     `;
-
     function atualizarStats() {
       document.getElementById('likesCount').textContent = videoSemana.likes;
       document.getElementById('commentsCount').textContent = videoSemana.comments.length;
     }
     atualizarStats();
-
     function curtirVideoSemana() {
       videoSemana.likes++;
       saveVideoData();
       atualizarStats();
     }
+
+    // Menu mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
   </script>
 </body>
 </html>
