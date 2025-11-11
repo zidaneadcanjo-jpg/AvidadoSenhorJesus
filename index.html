@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Vida do Senhor Jesus</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- MENU DE NAVEGAÇÃO (CORRIGIDO E TESTADO) -->
+  <!-- MENU 100% FUNCIONAL NO TELEMÓVEL -->
   <nav class="navbar">
-    <div class="container nav-container">
+    <div class="nav-container">
       <a href="index.html" class="nav-logo">
         <span>A Vida do Senhor Jesus</span>
       </a>
@@ -24,7 +24,7 @@
         <li><a href="divulgue.html" class="nav-link">Divulgue</a></li>
         <li><a href="contactos.html" class="nav-link">Contactos</a></li>
       </ul>
-      <div class="nav-toggle" id="mobileMenuBtn">
+      <div class="nav-toggle" id="mobileMenu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -53,7 +53,6 @@
     <a href="videos.html" class="btn secondary">Ver Todos os Vídeos</a>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 A Vida do Senhor Jesus | Feito com amor em Cristo</p>
   </footer>
@@ -61,9 +60,8 @@
   <!-- Scripts -->
   <script src="js/videos.js"></script>
   <script>
-    // === VÍDEO DA SEMANA (INALTERADO) ===
+    // === VÍDEO DA SEMANA ===
     const videoSemana = getVideoDaSemana();
-
     document.getElementById('videoContainer').innerHTML = `
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" 
@@ -71,57 +69,40 @@
       </div>
       <h3>${videoSemana.title}</h3>
     `;
-
     document.getElementById('verseQuote').innerHTML = `
       “${videoSemana.verse}” 
       <cite>— Bíblia Sagrada</cite>
     `;
-
     function atualizarStats() {
       document.getElementById('likesCount').textContent = videoSemana.likes;
       document.getElementById('commentsCount').textContent = videoSemana.comments.length;
     }
     atualizarStats();
-
     function curtirVideoSemana() {
       videoSemana.likes++;
       saveVideoData();
       atualizarStats();
     }
 
-    // === MENU MOBILE 100% CORRIGIDO ===
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
+    // === MENU MOBILE 100% FUNCIONAL ===
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const navMenu = document.getElementById('navMenu');
 
-    if (mobileMenuBtn && navMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-      });
+      if (mobileMenu && navMenu) {
+        mobileMenu.onclick = () => {
+          navMenu.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+        };
 
-      // Fecha ao clicar em link
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          mobileMenuBtn.classList.remove('active');
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.onclick = () => {
+            navMenu.classList.remove('active');
+            mobileMenu.classList.remove('active');
+          };
         });
-      });
-
-      // Fecha ao rolar
-      window.addEventListener('scroll', () => {
-        if (navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          mobileMenuBtn.classList.remove('active');
-        }
-      });
-
-      // Marca página atual
-      document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.href === window.location.href) {
-          link.classList.add('active');
-        }
-      });
-    }
+      }
+    });
   </script>
 </body>
 </html>
