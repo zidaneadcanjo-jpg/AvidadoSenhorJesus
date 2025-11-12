@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Vida do Senhor Jesus</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- FORÇA RECARREGAR CSS -->
-  <link rel="stylesheet" href="estilo.css?v=1" />
+  <link rel="stylesheet" href="css/style.css?v=9" />
   <style>
-    /* MENU SIMPLES E FORTE */
+    /* MENU MOBILE FORTE E SIMPLES */
     .navbar {
       position: fixed;
       top: 0; left: 0; width: 100%;
@@ -34,6 +33,7 @@
       flex-direction: column;
       cursor: pointer;
       z-index: 100000;
+      padding: 10px;
     }
     .bar {
       width: 28px; height: 3px;
@@ -47,7 +47,7 @@
       top: 65px; left: -100%;
       width: 100%; height: calc(100vh - 65px);
       background: #0d47a1;
-      transition: left 0.4s ease;
+      transition: left 0.35s ease;
       padding: 20px 0;
       overflow-y: auto;
       z-index: 99998;
@@ -64,6 +64,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .nav-link:hover, .nav-link.active { background: #1a5fb4; }
+    body { padding-top: 65px; margin: 0; }
     @media (min-width: 769px) {
       .nav-menu {
         position: static; left: auto; display: flex; flex-direction: row;
@@ -72,22 +73,20 @@
       .nav-link { padding: 15px 18px; font-size: 0.95rem; border: none; }
       .nav-toggle { display: none; }
     }
-    body { padding-top: 65px; margin: 0; }
   </style>
 </head>
 <body>
 
-  <!-- MENU SIMPLES -->
-  <nav class="navbar">
+  <!-- MENU QUE ABRE NO TELEMÓVEL -->
+  <div class="navbar">
     <a href="index.html" class="nav-logo"><span>A Vida do Senhor Jesus</span></a>
     <div class="nav-toggle" id="mobileMenu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </div>
-  </nav>
+  </div>
 
-  <!-- MENU DESLIZANTE -->
   <div class="nav-menu" id="navMenu">
     <a href="index.html" class="nav-link active">Início</a>
     <a href="sobre.html" class="nav-link">Sobre</a>
@@ -106,14 +105,11 @@
     </div>
   </header>
 
-  <section class="video-semana container" id="videoSemana">
+  <section class="video-semana container">
     <h2>Vídeo da Semana</h2>
-    <div id="videoContainer"></div>
+    <div id="videoContainer">Carregando...</div>
     <blockquote id="verseQuote"></blockquote>
-    <p class="stats">
-      <span id="likesCount">0</span> curtidas • 
-      <span id="commentsCount">0</span> comentários
-    </p>
+    <p class="stats"><span id="likesCount">0</span> curtidas • <span id="commentsCount">0</span> comentários</p>
     <button class="btn" onclick="curtirVideoSemana()">Curtir</button>
     <a href="videos.html" class="btn secondary">Ver Todos</a>
   </section>
@@ -122,44 +118,56 @@
     <p>© 2025 A Vida do Senhor Jesus | Feito com amor em Cristo</p>
   </footer>
 
-  <script src="js/videos.js"></script>
+  <!-- JS DO MENU + VÍDEO -->
   <script>
-    // Vídeo da Semana
-    const videoSemana = getVideoDaSemana();
-    document.getElementById('videoContainer').innerHTML = `
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" 
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-      <h3>${videoSemana.title}</h3>
-    `;
-    document.getElementById('verseQuote').innerHTML = `“${videoSemana.verse}” <cite>— Bíblia</cite>`;
-    function atualizarStats() {
-      document.getElementById('likesCount').textContent = videoSemana.likes;
-      document.getElementById('commentsCount').textContent = videoSemana.comments.length;
-    }
-    atualizarStats();
-    function curtirVideoSemana() {
-      videoSemana.likes++;
-      saveVideoData();
-      atualizarStats();
-    }
-
-    // MENU MOBILE SIMPLES E FORTE
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navMenu = document.getElementById('navMenu');
-
-    mobileMenu.onclick = () => {
-      navMenu.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
+    // MENU ABRE NO TELEMÓVEL
+    document.getElementById('mobileMenu').onclick = function() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('active');
+      this.classList.toggle('active');
     };
 
+    // Fecha ao clicar em link
     document.querySelectorAll('.nav-link').forEach(link => {
       link.onclick = () => {
-        navMenu.classList.remove('active');
-        mobileMenu.classList.remove('active');
+        document.getElementById('navMenu').classList.remove('active');
+        document.getElementById('mobileMenu').classList.remove('active');
       };
     });
+
+    // VÍDEO DA SEMANA (se videos.js falhar)
+    const fallbackVideo = {
+      youtubeId: "dQw4w9WgXcQ",
+      title: "Jesus é o Caminho",
+      verse: "João 14:6"
+    };
+
+    try {
+      const videoSemana = getVideoDaSemana();
+      document.getElementById('videoContainer').innerHTML = `
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>${videoSemana.title}</h3>
+      `;
+      document.getElementById('verseQuote').innerHTML = `“${videoSemana.verse}” <cite>— Bíblia</cite>`;
+      window.curtirVideoSemana = () => { videoSemana.likes++; saveVideoData(); atualizarStats(); };
+    } catch(e) {
+      document.getElementById('videoContainer').innerHTML = `
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/${fallbackVideo.youtubeId}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>${fallbackVideo.title}</h3>
+      `;
+      document.getElementById('verseQuote').innerHTML = `“${fallbackVideo.verse}” <cite>— Bíblia</cite>`;
+      window.curtirVideoSemana = () => alert('Vídeo de exemplo!');
+    }
+
+    function atualizarStats() {
+      document.getElementById('likesCount').textContent = (window.videoSemana?.likes || 0);
+      document.getElementById('commentsCount').textContent = (window.videoSemana?.comments?.length || 0);
+    }
+    atualizarStats();
   </script>
 </body>
 </html>
