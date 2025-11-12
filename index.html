@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Vida do Senhor Jesus</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- MENU 100% FUNCIONAL NO TELEMÓVEL -->
+  <!-- MENU MOBILE 100% FUNCIONAL -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
@@ -53,6 +53,7 @@
     <a href="videos.html" class="btn secondary">Ver Todos os Vídeos</a>
   </section>
 
+  <!-- Rodapé -->
   <footer>
     <p>© 2025 A Vida do Senhor Jesus | Feito com amor em Cristo</p>
   </footer>
@@ -60,15 +61,19 @@
   <!-- Scripts -->
   <script src="js/videos.js"></script>
   <script>
-    // VÍDEO DA SEMANA
+    // === VÍDEO DA SEMANA ===
     const videoSemana = getVideoDaSemana();
     document.getElementById('videoContainer').innerHTML = `
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
       <h3>${videoSemana.title}</h3>
     `;
-    document.getElementById('verseQuote').innerHTML = `“${videoSemana.verse}” <cite>— Bíblia Sagrada</cite>`;
+    document.getElementById('verseQuote').innerHTML = `
+      “${videoSemana.verse}” 
+      <cite>— Bíblia Sagrada</cite>
+    `;
     function atualizarStats() {
       document.getElementById('likesCount').textContent = videoSemana.likes;
       document.getElementById('commentsCount').textContent = videoSemana.comments.length;
@@ -80,13 +85,13 @@
       atualizarStats();
     }
 
-    // MENU MOBILE FUNCIONAL
+    // === MENU MOBILE 100% FUNCIONAL ===
     const mobileMenu = document.getElementById('mobileMenu');
     const navMenu = document.getElementById('navMenu');
 
-    mobileMenu.addEventListener('click', function() {
+    mobileMenu.addEventListener('click', () => {
       navMenu.classList.toggle('active');
-      this.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
