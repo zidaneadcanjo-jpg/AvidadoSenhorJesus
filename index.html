@@ -5,34 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Vida do Senhor Jesus</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilo.css" />
+  <!-- FORÇA RECARREGAR CSS -->
+  <link rel="stylesheet" href="css/style.css?v=1" />
+  <style>
+    /* MENU SIMPLES E FORTE */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: #1a5fb4;
+      z-index: 99999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 0 15px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #ffd700; }
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 100000;
+    }
+    .bar {
+      width: 28px; height: 3px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+    .nav-menu {
+      position: fixed;
+      top: 65px; left: -100%;
+      width: 100%; height: calc(100vh - 65px);
+      background: #0d47a1;
+      transition: left 0.4s ease;
+      padding: 20px 0;
+      overflow-y: auto;
+      z-index: 99998;
+    }
+    .nav-menu.active { left: 0; }
+    .nav-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 18px 25px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-link:hover, .nav-link.active { background: #1a5fb4; }
+    @media (min-width: 769px) {
+      .nav-menu {
+        position: static; left: auto; display: flex; flex-direction: row;
+        height: auto; background: transparent; padding: 0;
+      }
+      .nav-link { padding: 15px 18px; font-size: 0.95rem; border: none; }
+      .nav-toggle { display: none; }
+    }
+    body { padding-top: 65px; margin: 0; }
+  </style>
 </head>
 <body>
 
-  <!-- MENU MOBILE 100% FUNCIONAL -->
+  <!-- MENU SIMPLES -->
   <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">
-        <span>A Vida do Senhor Jesus</span>
-      </a>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link active">Início</a></li>
-        <li><a href="sobre.html" class="nav-link">Sobre</a></li>
-        <li><a href="milagres.html" class="nav-link">Milagres</a></li>
-        <li><a href="galeria.html" class="nav-link">Galeria</a></li>
-        <li><a href="videos.html" class="nav-link">Vídeos</a></li>
-        <li><a href="divulgue.html" class="nav-link">Divulgue</a></li>
-        <li><a href="contactos.html" class="nav-link">Contactos</a></li>
-      </ul>
-      <div class="nav-toggle" id="mobileMenu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+    <a href="index.html" class="nav-logo"><span>A Vida do Senhor Jesus</span></a>
+    <div class="nav-toggle" id="mobileMenu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
   </nav>
 
-  <!-- Cabeçalho -->
+  <!-- MENU DESLIZANTE -->
+  <div class="nav-menu" id="navMenu">
+    <a href="index.html" class="nav-link active">Início</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="milagres.html" class="nav-link">Milagres</a>
+    <a href="galeria.html" class="nav-link">Galeria</a>
+    <a href="videos.html" class="nav-link">Vídeos</a>
+    <a href="divulgue.html" class="nav-link">Divulgue</a>
+    <a href="contactos.html" class="nav-link">Contactos</a>
+  </div>
+
+  <!-- Conteúdo -->
   <header class="hero">
     <div class="container">
       <h1>A Vida do Senhor Jesus</h1>
@@ -40,7 +106,6 @@
     </div>
   </header>
 
-  <!-- Vídeo da Semana -->
   <section class="video-semana container" id="videoSemana">
     <h2>Vídeo da Semana</h2>
     <div id="videoContainer"></div>
@@ -50,30 +115,25 @@
       <span id="commentsCount">0</span> comentários
     </p>
     <button class="btn" onclick="curtirVideoSemana()">Curtir</button>
-    <a href="videos.html" class="btn secondary">Ver Todos os Vídeos</a>
+    <a href="videos.html" class="btn secondary">Ver Todos</a>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 A Vida do Senhor Jesus | Feito com amor em Cristo</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/videos.js"></script>
   <script>
-    // === VÍDEO DA SEMANA ===
+    // Vídeo da Semana
     const videoSemana = getVideoDaSemana();
     document.getElementById('videoContainer').innerHTML = `
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/${videoSemana.youtubeId}" 
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                frameborder="0" allowfullscreen></iframe>
       </div>
       <h3>${videoSemana.title}</h3>
     `;
-    document.getElementById('verseQuote').innerHTML = `
-      “${videoSemana.verse}” 
-      <cite>— Bíblia Sagrada</cite>
-    `;
+    document.getElementById('verseQuote').innerHTML = `“${videoSemana.verse}” <cite>— Bíblia</cite>`;
     function atualizarStats() {
       document.getElementById('likesCount').textContent = videoSemana.likes;
       document.getElementById('commentsCount').textContent = videoSemana.comments.length;
@@ -85,20 +145,20 @@
       atualizarStats();
     }
 
-    // === MENU MOBILE 100% FUNCIONAL ===
+    // MENU MOBILE SIMPLES E FORTE
     const mobileMenu = document.getElementById('mobileMenu');
     const navMenu = document.getElementById('navMenu');
 
-    mobileMenu.addEventListener('click', () => {
+    mobileMenu.onclick = () => {
       navMenu.classList.toggle('active');
       mobileMenu.classList.toggle('active');
-    });
+    };
 
     document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
+      link.onclick = () => {
         navMenu.classList.remove('active');
         mobileMenu.classList.remove('active');
-      });
+      };
     });
   </script>
 </body>
